@@ -1,0 +1,52 @@
+{
+  "propostas": [
+    {
+      "id": 1,
+      "area": "TI",
+      "titulo": "Comprar novoos equipamentos",
+      "descricao": "comprar novos equipamentos para os funcionários pois os atuais estão obsoletos....",
+      "valor": 20000,
+      "urgente": false,
+    },
+    {
+      "id": 2,
+      "area": "RH",
+      "titulo": "Comprar um celular novo",
+      "descricao": "O RH precisa de um celular novo.",
+      "valor": 1000,
+      "urgente": true,
+    },
+     {
+      "id": 3,
+      "area": "teste 123",
+      "titulo": "teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123",
+      "descricao": "descrição teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123 teste 123",
+      "valor": 1500,
+      "urgente": false,
+    },
+     {
+      "id": 4, 
+      "area": "teste 4",
+      "titulo": "titulo teste 4",
+      "descricao": "descrição teste 4 teste 4teste 4teste 4teste 4teste 4teste 4teste 4teste 4teste 4",
+      "valor": 200,
+      "urgente": true
+    },
+      {
+      "id": 5 
+      "area": "teste 5",
+      "titulo": "titulo teste 5",
+      "descricao": "descrição teste 5 descrição teste 5  descrição teste 5 descrição teste 5 descrição teste 5 descrição teste 5 ",
+      "valor": 6000,
+      "urgente": true
+    },
+     {
+      "id": 6
+      "area": "teste 6",
+      "titulo": "titulo teste6",
+      "descricao": "descricao 6 teste 6 teste teste teste teste teste teste teste",
+      "valor": 6000,
+      "urgente": true
+    },
+  ]
+}

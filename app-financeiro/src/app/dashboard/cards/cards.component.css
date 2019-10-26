@@ -1,0 +1,10 @@
+.h1-card{
+    font-size: 80px;
+    align-content: center !important;
+    margin-left: 40%;
+}
+.p-card{
+    align-content: center;
+    font-size: 30px;
+    margin-left: 10px;
+}
