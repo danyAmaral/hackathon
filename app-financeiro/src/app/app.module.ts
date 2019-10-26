@@ -10,6 +10,10 @@ import { GraficoSetorComponent } from './dashboard/grafico-setor/grafico-setor.c
 import { ListagemComponent } from './dashboard/listagem/listagem.component';
 import { PropostaComponent } from './proposta/proposta.component'
 
+
+import {RouterModule} from '@angular/router'
+import {ROUTES} from './app.routes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,8 @@ import { PropostaComponent } from './proposta/proposta.component'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
