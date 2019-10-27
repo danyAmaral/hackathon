@@ -5,4 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'
 export const ROUTES: Routes = [
     { path: '', component: DashboardComponent },
     { path: 'proposta', component: PropostaComponent },
+    {
+        path: 'proposta/:id', component: PropostaComponent,
+    },
 ]

@@ -7,6 +7,7 @@ import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { URL_API } from '../app.api'
 import { PropostaService } from '../proposta.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-proposta',
@@ -14,7 +15,7 @@ import { PropostaService } from '../proposta.service';
   styleUrls: ['./proposta.component.css']
 })
 export class PropostaComponent implements OnInit {
-  public proposta: Proposta;
+  public proposta: Proposta = new Proposta();
   public formulario: FormGroup = new FormGroup({
     'titulo': new FormControl(null, [Validators.required]),
     'descricao': new FormControl(null, [Validators.required]),
@@ -23,9 +24,18 @@ export class PropostaComponent implements OnInit {
     'dataInicio': new FormControl(null, Validators.required),
     'dataTermino': new FormControl(null, Validators.required),
   });
-  constructor(private propostaService: PropostaService) { }
+  constructor(private propostaService: PropostaService,
+              private route: ActivatedRoute,) { }
 
   ngOnInit() {
+    this.route.params.subscribe((parametros: any) => {
+      this.propostaService.getPropostaPorId(parametros.id)
+        .then((proposta: Proposta) => {
+          this.proposta = proposta
+        });
+    })
+  }
+  ngOnDestroy() {
   }
 
   public salvarProposta(): void {

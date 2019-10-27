@@ -9,7 +9,6 @@ export class PropostaService{
     constructor(private http: HttpClient){}
     
     public salvarItem(proposta: Proposta): Observable<any>{
-        console.log('cheguei no service')
         let itemProposta:Proposta = new Proposta();
         itemProposta.titulo = proposta.titulo;
         itemProposta.descricao = proposta.descricao;
@@ -28,6 +27,14 @@ export class PropostaService{
              {headers: headers}
         )
            
+    }
+
+    public getPropostaPorId(id: number): Promise<Proposta>{
+        return this.http.get(`${URL_API}/propostas?id=${id}`)
+            .toPromise()
+            .then((resposta: Response) => {
+                return resposta[0]
+            });
     }
 
 
