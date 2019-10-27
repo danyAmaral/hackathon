@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,9 @@ import {RouterModule} from '@angular/router'
 import {ROUTES} from './app.routes';
 import { TopoComponent } from './topo/topo.component';
 import { RodapeComponent } from './rodape/rodape.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import {PropostaService } from './proposta.service'
 
 import { DxSelectBoxModule,
   DxCheckBoxModule,
@@ -41,9 +45,13 @@ import { DxSelectBoxModule,
     DxDateBoxModule,
     DxCalendarModule,
     DxTemplateModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [
+    PropostaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

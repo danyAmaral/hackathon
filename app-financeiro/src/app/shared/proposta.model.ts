@@ -5,7 +5,8 @@ export class Proposta{
     public titulo:string;
     public descricao:string;
     public area:string;
-    public urgente:boolean;
     public status:string;
+    public dataInicio: Date;
+    public dataTermino: Date;
     public dadosFinanceiros: Array<DadosFinanceiros>
 }
