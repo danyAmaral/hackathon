@@ -15,6 +15,12 @@ import {ROUTES} from './app.routes';
 import { TopoComponent } from './topo/topo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
+import { DxSelectBoxModule,
+  DxCheckBoxModule,
+  DxDateBoxModule,
+  DxCalendarModule,
+  DxTemplateModule } from 'devextreme-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +36,11 @@ import { RodapeComponent } from './rodape/rodape.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DxSelectBoxModule,
+    DxCheckBoxModule,
+    DxDateBoxModule,
+    DxCalendarModule,
+    DxTemplateModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [],

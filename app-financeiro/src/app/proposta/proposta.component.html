@@ -25,23 +25,21 @@
         </div>
         <div class="col-sm-3">
           <label>Data de Início</label>
-          <input type="date" class="form-control" />
-          </div>
-        <div class="col-sm-3">
-          <label>Data de Término</label>
-          <div class="widget-container">
-            <input type="date" class="form-control" />
-          </div>
+          <dx-date-box id="selected-date" class="form-control" width="100%"></dx-date-box>
         </div>
         <div class="col-sm-3">
-            <label>Status</label>
-            <select class="form-control" id="ddlArea">
-              <option>Rascunho</option>
-              <option>Aguardando Aprovação</option>
-              <option>Aprovado</option>
-              <option>Reprovado</option>
-            </select>
-          </div>
+          <label>Data de Término</label>
+          <dx-date-box id="selected-date" class="form-control" width="100%"></dx-date-box>
+        </div>
+        <div class="col-sm-3">
+          <label>Status</label>
+          <select class="form-control" id="ddlArea">
+            <option>Rascunho</option>
+            <option>Aguardando Aprovação</option>
+            <option>Aprovado</option>
+            <option>Reprovado</option>
+          </select>
+        </div>
       </div>
     </div>
     <button type="submit" class="btn btn-primary btn">Salvar</button>
