@@ -10,9 +10,10 @@ import { GraficoSetorComponent } from './dashboard/grafico-setor/grafico-setor.c
 import { ListagemComponent } from './dashboard/listagem/listagem.component';
 import { PropostaComponent } from './proposta/proposta.component'
 
-
 import {RouterModule} from '@angular/router'
 import {ROUTES} from './app.routes';
+import { TopoComponent } from './topo/topo.component';
+import { RodapeComponent } from './rodape/rodape.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import {ROUTES} from './app.routes';
     GraficoCrescimentoComponent,
     GraficoSetorComponent,
     ListagemComponent,
-    PropostaComponent
+    PropostaComponent,
+    TopoComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,

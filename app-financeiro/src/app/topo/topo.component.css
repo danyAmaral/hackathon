@@ -1,0 +1,24 @@
+.menu {
+    background: #006ACB
+}
+.navbar-light .navbar-brand{
+    font-size: 40px;
+    color: #475e60;
+}
+
+.nav-link {
+    color: #C1E4FF
+}
+
+.nav-link:hover{
+    color: #FFF
+}
+
+
+.active {
+    color: #FFF 
+}
+
+nav {
+    background-color: white;
+}
