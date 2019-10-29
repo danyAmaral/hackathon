@@ -1,29 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { CardsComponent} from './dashboard/cards/cards.component';
+import { CardsComponent } from './dashboard/cards/cards.component';
 import { GraficoCrescimentoComponent } from './dashboard/grafico-crescimento/grafico-crescimento.component';
 import { GraficoSetorComponent } from './dashboard/grafico-setor/grafico-setor.component';
 import { ListagemComponent } from './dashboard/listagem/listagem.component';
 import { PropostaComponent } from './proposta/proposta.component'
 
-import {RouterModule} from '@angular/router'
-import {ROUTES} from './app.routes';
+import { RouterModule } from '@angular/router'
+import { ROUTES } from './app.routes';
 import { TopoComponent } from './topo/topo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import {PropostaService } from './proposta.service'
+import { PropostaService } from './proposta.service'
 
-import { DxSelectBoxModule,
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+
+import {
+  DxSelectBoxModule,
   DxCheckBoxModule,
   DxDateBoxModule,
   DxCalendarModule,
-  DxTemplateModule } from 'devextreme-angular';
+  DxTemplateModule,
+  DxChartModule
+} from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,7 @@ import { DxSelectBoxModule,
     DxDateBoxModule,
     DxCalendarModule,
     DxTemplateModule,
+    DxChartModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES)
@@ -55,3 +61,5 @@ import { DxSelectBoxModule,
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+platformBrowserDynamic().bootstrapModule(AppModule);
