@@ -18,11 +18,11 @@ export class GraficoCrescimentoComponent implements OnInit {
   dataSource: ComplaintsWithPercent[];
   // dataSource: Proposta[];
   // dataSource: DadosFinanceiros;
-
+  // dataSource: any[]
   constructor(private service: GraficoCrescimentoService) {
     this.dataSource = this.service.getComplaintsData()
-    // this.dataSource = this.service.getPropostas()[0].dadosFinanceiros[0]
-    console.log(this.dataSource)
+    // this.dataSource = this.service.getDataSource();
+    // console.log(this.dataSource)
   }
 
   ngOnInit() {
