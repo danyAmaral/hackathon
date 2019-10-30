@@ -32,6 +32,7 @@ import {
   DxChartModule,
   DxButtonModule,
   DxDataGridModule
+  DxPieChartModule
 } from 'devextreme-angular';
 
 @NgModule({
@@ -57,6 +58,7 @@ import {
     DxChartModule,
     DxButtonModule,
     DxDataGridModule,
+    DxPieChartModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgxCurrencyModule,

@@ -1,4 +1,38 @@
-<dx-chart id="chart" [dataSource]="dataSource" title="Pizza Shop Complaints" palette="Harmony Light" [valueAxis]="[{
+<div id="chart-demo">
+        <dx-chart
+            title="Investimento por Área"
+            palette="Harmony Light"
+            [dataSource]="areasData">
+            <dxi-series valueField="operacional" name="Operacional"></dxi-series>
+            <dxi-series valueField="comercial" name="Comercial"></dxi-series>
+            <dxi-series valueField="financeiro" name="Financeiro"></dxi-series>
+            <dxi-series valueField="infraestrutura" name="Infraestrutura"></dxi-series>
+            <dxo-common-series-settings
+                #commonSeries
+                argumentField="periodo"
+                type="area">
+            </dxo-common-series-settings>
+            <dxo-margin [bottom]="20"></dxo-margin>
+            <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>
+            <dxo-export [enabled]="true"></dxo-export>
+            <dxo-legend
+                verticalAlignment="bottom"
+                horizontalAlignment="center">
+            </dxo-legend>
+        </dx-chart>
+        <div class="options">
+                <div class="caption">Options</div>
+                <div class="option">              
+                    <span>Series Type</span> 
+                    <dx-select-box
+                        [dataSource]="types"
+                        [(value)]="commonSeries.type">
+                    </dx-select-box>
+                 </div>
+            </div>
+    </div>
+
+<!-- <dx-chart id="chart" [dataSource]="dataSource" title="Gráfico de Crescimento" palette="Harmony Light" [valueAxis]="[{
         name: 'frequency',
         position: 'left',
         tickInterval: 300
@@ -24,13 +58,13 @@
     </dxo-argument-axis>
     <dxo-tooltip [enabled]="true" [shared]="true" [customizeTooltip]="customizeTooltip">
     </dxo-tooltip>
-    <dxo-common-series-settings argumentField="complaint">
+    <dxo-common-series-settings argumentField="MesAno">
     </dxo-common-series-settings>
-    <dxi-series type="bar" valueField="count" axis="frequency" name="Complaint frequency" color="#fac29a">
+    <dxi-series type="bar" valueField="valor" axis="frequency" name="Valor" color="#fac29a">
     </dxi-series>
-    <dxi-series type="spline" valueField="cumulativePercent" axis="percentage" name="Cumulative percentage"
+    <dxi-series type="spline" valueField="valorAcumulado" axis="percentage" name="Valor Acumulado"
         color="#6b71c3">
     </dxi-series>
     <dxo-legend verticalAlignment="top" horizontalAlignment="center">
     </dxo-legend>
-</dx-chart>
+</dx-chart> -->
