@@ -9,15 +9,15 @@ import { CardsComponent } from './dashboard/cards/cards.component';
 import { GraficoCrescimentoComponent } from './dashboard/grafico-crescimento/grafico-crescimento.component';
 import { GraficoSetorComponent } from './dashboard/grafico-setor/grafico-setor.component';
 import { ListagemComponent } from './dashboard/listagem/listagem.component';
-import { PropostaComponent } from './proposta/proposta.component'
+import { PropostaComponent } from './proposta/proposta.component';
 
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { TopoComponent } from './topo/topo.component';
 import { RodapeComponent } from './rodape/rodape.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { PropostaService } from './proposta.service'
+import { PropostaService } from './proposta.service';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
@@ -27,7 +27,8 @@ import {
   DxDateBoxModule,
   DxCalendarModule,
   DxTemplateModule,
-  DxChartModule
+  DxChartModule,
+  DxPieChartModule
 } from 'devextreme-angular';
 
 @NgModule({
@@ -51,6 +52,7 @@ import {
     DxCalendarModule,
     DxTemplateModule,
     DxChartModule,
+    DxPieChartModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES)
