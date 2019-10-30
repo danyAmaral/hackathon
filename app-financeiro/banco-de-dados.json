@@ -4,7 +4,7 @@
       "titulo": "aaaaaaaaaa",
       "descricao": "bbbbbbbbbbbbbbbbb",
       "area": "Comercial",
-      "status": "Rascunho",
+      "status": "Aprovada",
       "dataInicio": "2019-10-27T03:00:00.000Z",
       "dataTermino": "2019-10-31T03:00:00.000Z",
       "dadosFinanceiros": [
@@ -75,13 +75,13 @@
       "titulo": "novo",
       "descricao": "novaaaaa",
       "area": "Financeiro",
-      "status": "Rascunho",
+      "status": "Aprovada",
       "dataInicio": "2019-10-30T01:31:05.989Z",
       "dataTermino": "2019-10-30T01:31:05.989Z",
       "dadosFinanceiros": [
         {
           "ano": "2019",
-          "janeiro": "1",
+          "janeiro": 100.9,
           "fevereiro": "10",
           "marco": "1",
           "abril": "1",
@@ -96,6 +96,47 @@
         }
       ],
       "id": 2
+    },
+    {
+      "titulo": "teste lalalala",
+      "descricao": "teste teste teste teste",
+      "area": "Operacional",
+      "status": "Aguardando Aprovação",
+      "dataInicio": "2019-10-30T16:26:25.869Z",
+      "dataTermino": "2020-10-30T16:26:25.869Z",
+      "dadosFinanceiros": [
+        {
+          "ano": "2019",
+          "janeiro": 100,
+          "fevereiro": 100000,
+          "marco": 100000,
+          "abril": 100000,
+          "maio": 100000,
+          "junho": 100000,
+          "julho": 100000,
+          "agosto": 10000,
+          "setembro": 100,
+          "outubro": 1000,
+          "novembro": 100000,
+          "dezembro": 100000
+        },
+        {
+          "ano": "2020",
+          "janeiro": 100,
+          "fevereiro": 1,
+          "marco": 1.11,
+          "abril": 0.1,
+          "maio": 1.11,
+          "junho": 0.1,
+          "julho": 0.1,
+          "agosto": 0.1,
+          "setembro": 0.1,
+          "outubro": 0,
+          "novembro": 11.11,
+          "dezembro": 111.11
+        }
+      ],
+      "id": 3
     }
   ]
 }

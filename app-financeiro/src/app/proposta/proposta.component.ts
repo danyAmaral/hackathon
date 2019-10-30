@@ -7,8 +7,8 @@ import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { URL_API } from '../app.api'
 import { PropostaService } from '../proposta.service';
-import { ActivatedRoute } from '@angular/router';
 import { DadosFinanceiros } from '../shared/dados-financeiros.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-proposta',
@@ -18,8 +18,11 @@ import { DadosFinanceiros } from '../shared/dados-financeiros.model';
 export class PropostaComponent implements OnInit {
   public formulario: FormGroup;
   public idProposta:number;
+  public status:string = "Rascunho";
   constructor(private propostaService: PropostaService,
-    private route: ActivatedRoute, private formBuilder: FormBuilder) {
+              private route: ActivatedRoute, 
+              private router:Router,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
@@ -44,7 +47,9 @@ export class PropostaComponent implements OnInit {
               const elemento = proposta.dadosFinanceiros[i];
               this.addDadosFinanceirosFormGroup(elemento);
             }
+            this.status = proposta.status
           });
+       
       }
       else {
         this.formulario = new FormGroup({
@@ -92,10 +97,7 @@ export class PropostaComponent implements OnInit {
   }
 
   public salvarProposta(): void {
-    console.log(this.formulario.value);
-    console.log(this.formulario.status);
-
-    if (this.formulario.status == "INVALID") {
+     if (this.formulario.status == "INVALID") {
       this.formulario.get('titulo').markAllAsTouched();
       this.formulario.get('descricao').markAllAsTouched();
       this.formulario.get('area').markAllAsTouched();
@@ -104,32 +106,70 @@ export class PropostaComponent implements OnInit {
       this.formulario.get('dataTermino').markAllAsTouched();
     }
     else {
-
-      let itemProposta: Proposta = new Proposta();
-      itemProposta.titulo = this.formulario.value.titulo;
-      itemProposta.descricao = this.formulario.value.descricao;
-      itemProposta.area = this.formulario.value.area;
-      itemProposta.status = this.formulario.value.status;
-      itemProposta.dataInicio = this.formulario.value.dataInicio;
-      itemProposta.dataTermino = this.formulario.value.dataTermino;
-      itemProposta.dadosFinanceiros = this.formulario.value.dadosFinanceiros;
-
-      console.log(itemProposta);
+      let itemProposta = this.recuperarDadosFormnulario();
       if(this.idProposta)
       {
-        itemProposta.id = this.idProposta;
-        this.propostaService.atualizarItem(itemProposta)
-          .subscribe((resposta) => {
-            alert('salvo com sucesso!')
-          });
+        this.atualizar(itemProposta)
       }
       else
       {
-        this.propostaService.salvarItem(itemProposta)
-          .subscribe((resposta) => {
-            alert('salvo com sucesso!')
-          });
+        this.incluir(itemProposta);
       }
     }
+  }
+  
+  public recuperarDadosFormnulario(): Proposta{
+    let itemProposta: Proposta = new Proposta();
+    itemProposta.titulo = this.formulario.value.titulo;
+    itemProposta.descricao = this.formulario.value.descricao;
+    itemProposta.area = this.formulario.value.area;
+    itemProposta.status = this.formulario.value.status;
+    itemProposta.dataInicio = this.formulario.value.dataInicio;
+    itemProposta.dataTermino = this.formulario.value.dataTermino;
+    itemProposta.dadosFinanceiros = this.formulario.value.dadosFinanceiros;
+
+    return itemProposta;
+  }
+  public atualizar(itemProposta:Proposta): void{
+    itemProposta.id = this.idProposta;
+    this.propostaService.atualizarItem(itemProposta)
+    .subscribe((resposta) => {
+      alert('salvo com sucesso!')
+    });
+  }
+
+  public enviar(){
+    let itemProposta = this.recuperarDadosFormnulario();
+    itemProposta = this.alterarStatus("Aguardando Aprovação", itemProposta);
+    this.atualizar(itemProposta);
+  }
+
+  public aprovar(){
+    let itemProposta = this.recuperarDadosFormnulario();
+    itemProposta = this.alterarStatus("Aprovada", itemProposta);
+    this.atualizar(itemProposta);
+  }
+
+  public reprovar(){
+    let itemProposta = this.recuperarDadosFormnulario();
+    itemProposta = this.alterarStatus("Reprovada", itemProposta);
+    this.atualizar(itemProposta);
+  }
+
+  public alterarStatus(status: string, itemProposta:Proposta): Proposta{
+    itemProposta.status = status;
+    this.formulario.get('status').setValue(status)
+    this.status = status;
+
+    return itemProposta;
+  }
+
+  public incluir(itemProposta:Proposta): void{
+    this.propostaService.salvarItem(itemProposta)
+    .subscribe((resposta) => {
+      alert('salvo com sucesso!');
+      this.idProposta = resposta.id;
+      this.router.navigate([`/proposta/${this.idProposta}`])
+    });
   }
 }
