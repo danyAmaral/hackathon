@@ -1,7 +1,7 @@
 export class DadosFinanceiros{
     public ano: number;
     public janeiro: number;
-    public favereiro: number;
+    public fevereiro: number;
     public marco: number;
     public abril: number;
     public maio: number;

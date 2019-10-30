@@ -4,10 +4,139 @@
       "titulo": "aaaaaaaaaa",
       "descricao": "bbbbbbbbbbbbbbbbb",
       "area": "Comercial",
-      "status": "Rascunho",
+      "status": "Aprovada",
       "dataInicio": "2019-10-27T03:00:00.000Z",
       "dataTermino": "2019-10-31T03:00:00.000Z",
+      "dadosFinanceiros": [
+        {
+          "ano": "2019",
+          "janeiro": "101",
+          "fevereiro": "202",
+          "marco": "10",
+          "abril": "20",
+          "maio": "10",
+          "junho": "20",
+          "julho": "10",
+          "agosto": "20",
+          "setembro": "10",
+          "outubro": "20",
+          "novembro": "10",
+          "dezembro": "20"
+        },
+        {
+          "ano": 0,
+          "janeiro": 0,
+          "fevereiro": 0,
+          "marco": 0,
+          "abril": 0,
+          "maio": 0,
+          "junho": 0,
+          "julho": 0,
+          "agosto": 0,
+          "setembro": 0,
+          "outubro": 0,
+          "novembro": 0,
+          "dezembro": 0
+        },
+        {
+          "ano": 0,
+          "janeiro": 0,
+          "fevereiro": 0,
+          "marco": 0,
+          "abril": 0,
+          "maio": 0,
+          "junho": 0,
+          "julho": 0,
+          "agosto": 0,
+          "setembro": 0,
+          "outubro": 0,
+          "novembro": 0,
+          "dezembro": 0
+        },
+        {
+          "ano": 0,
+          "janeiro": 0,
+          "fevereiro": 0,
+          "marco": 0,
+          "abril": 0,
+          "maio": 0,
+          "junho": 0,
+          "julho": 0,
+          "agosto": 0,
+          "setembro": 0,
+          "outubro": 0,
+          "novembro": 0,
+          "dezembro": 0
+        }
+      ],
       "id": 1
+    },
+    {
+      "titulo": "novo",
+      "descricao": "novaaaaa",
+      "area": "Financeiro",
+      "status": "Aprovada",
+      "dataInicio": "2019-10-30T01:31:05.989Z",
+      "dataTermino": "2019-10-30T01:31:05.989Z",
+      "dadosFinanceiros": [
+        {
+          "ano": "2019",
+          "janeiro": 100.9,
+          "fevereiro": "10",
+          "marco": "1",
+          "abril": "1",
+          "maio": "10",
+          "junho": "111",
+          "julho": "1",
+          "agosto": "1",
+          "setembro": "1",
+          "outubro": "1",
+          "novembro": "1",
+          "dezembro": "1"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "titulo": "teste lalalala",
+      "descricao": "teste teste teste teste",
+      "area": "Operacional",
+      "status": "Aguardando Aprovação",
+      "dataInicio": "2019-10-30T16:26:25.869Z",
+      "dataTermino": "2020-10-30T16:26:25.869Z",
+      "dadosFinanceiros": [
+        {
+          "ano": "2019",
+          "janeiro": 100,
+          "fevereiro": 100000,
+          "marco": 100000,
+          "abril": 100000,
+          "maio": 100000,
+          "junho": 100000,
+          "julho": 100000,
+          "agosto": 10000,
+          "setembro": 100,
+          "outubro": 1000,
+          "novembro": 100000,
+          "dezembro": 100000
+        },
+        {
+          "ano": "2020",
+          "janeiro": 100,
+          "fevereiro": 1,
+          "marco": 1.11,
+          "abril": 0.1,
+          "maio": 1.11,
+          "junho": 0.1,
+          "julho": 0.1,
+          "agosto": 0.1,
+          "setembro": 0.1,
+          "outubro": 0,
+          "novembro": 11.11,
+          "dezembro": 111.11
+        }
+      ],
+      "id": 3
     }
   ]
 }

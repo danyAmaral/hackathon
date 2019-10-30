@@ -6,12 +6,7 @@ import { GraficoSetorComponent } from './dashboard/grafico-setor/grafico-setor.c
 import { ListagemComponent } from './dashboard/listagem/listagem.component';
 
 export const ROUTES: Routes = [
-    { path: '', component: DashboardComponent,
-        children: [
-            { path: 'grafico-crescimento', component: GraficoCrescimentoComponent },
-            { path: 'grafico-setor', component: GraficoSetorComponent }
-        ]
-    },
+    { path: '', component: DashboardComponent },
     { path: 'proposta', component: PropostaComponent },
     { path: 'proposta/:id', component: PropostaComponent },
     { path: 'listagem', component: ListagemComponent}
