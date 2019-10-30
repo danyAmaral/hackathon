@@ -4,7 +4,7 @@
       "titulo": "aaaaaaaaaa",
       "descricao": "bbbbbbbbbbbbbbbbb",
       "area": "Comercial",
-      "status": "Rascunho",
+      "status": "Aprovada",
       "dataInicio": "2019-10-27T03:00:00.000Z",
       "dataTermino": "2019-10-31T03:00:00.000Z",
       "dadosFinanceiros": [
@@ -75,7 +75,7 @@
       "titulo": "novo",
       "descricao": "novaaaaa",
       "area": "Financeiro",
-      "status": "Rascunho",
+      "status": "Aguardando Aprovação",
       "dataInicio": "2019-10-30T01:31:05.989Z",
       "dataTermino": "2019-10-30T01:31:05.989Z",
       "dadosFinanceiros": [
