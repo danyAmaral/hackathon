@@ -7,7 +7,95 @@
       "status": "Rascunho",
       "dataInicio": "2019-10-27T03:00:00.000Z",
       "dataTermino": "2019-10-31T03:00:00.000Z",
+      "dadosFinanceiros": [
+        {
+          "ano": "2019",
+          "janeiro": "101",
+          "fevereiro": "202",
+          "marco": "10",
+          "abril": "20",
+          "maio": "10",
+          "junho": "20",
+          "julho": "10",
+          "agosto": "20",
+          "setembro": "10",
+          "outubro": "20",
+          "novembro": "10",
+          "dezembro": "20"
+        },
+        {
+          "ano": 0,
+          "janeiro": 0,
+          "fevereiro": 0,
+          "marco": 0,
+          "abril": 0,
+          "maio": 0,
+          "junho": 0,
+          "julho": 0,
+          "agosto": 0,
+          "setembro": 0,
+          "outubro": 0,
+          "novembro": 0,
+          "dezembro": 0
+        },
+        {
+          "ano": 0,
+          "janeiro": 0,
+          "fevereiro": 0,
+          "marco": 0,
+          "abril": 0,
+          "maio": 0,
+          "junho": 0,
+          "julho": 0,
+          "agosto": 0,
+          "setembro": 0,
+          "outubro": 0,
+          "novembro": 0,
+          "dezembro": 0
+        },
+        {
+          "ano": 0,
+          "janeiro": 0,
+          "fevereiro": 0,
+          "marco": 0,
+          "abril": 0,
+          "maio": 0,
+          "junho": 0,
+          "julho": 0,
+          "agosto": 0,
+          "setembro": 0,
+          "outubro": 0,
+          "novembro": 0,
+          "dezembro": 0
+        }
+      ],
       "id": 1
+    },
+    {
+      "titulo": "novo",
+      "descricao": "novaaaaa",
+      "area": "Financeiro",
+      "status": "Rascunho",
+      "dataInicio": "2019-10-30T01:31:05.989Z",
+      "dataTermino": "2019-10-30T01:31:05.989Z",
+      "dadosFinanceiros": [
+        {
+          "ano": "2019",
+          "janeiro": "1",
+          "fevereiro": "10",
+          "marco": "1",
+          "abril": "1",
+          "maio": "10",
+          "junho": "111",
+          "julho": "1",
+          "agosto": "1",
+          "setembro": "1",
+          "outubro": "1",
+          "novembro": "1",
+          "dezembro": "1"
+        }
+      ],
+      "id": 2
     }
   ]
 }

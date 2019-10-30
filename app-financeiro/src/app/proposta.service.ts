@@ -16,6 +16,7 @@ export class PropostaService{
         itemProposta.status = proposta.status;
         itemProposta.dataInicio = proposta.dataInicio;
         itemProposta.dataTermino = proposta.dataTermino;
+        itemProposta.dadosFinanceiros = proposta.dadosFinanceiros;
 
         let headers: HttpHeaders = new HttpHeaders({
             'Content-Type': 'application/json'
@@ -24,6 +25,19 @@ export class PropostaService{
        return this.http.post(
             `${URL_API}/propostas`,
              JSON.stringify(itemProposta),
+             {headers: headers}
+        )  
+    }
+    
+    public atualizarItem(proposta: Proposta): Observable<any>{
+        
+        let headers: HttpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });   
+           
+       return this.http.put(
+            `${URL_API}/propostas/${proposta.id}`,
+             JSON.stringify(proposta),
              {headers: headers}
         )
            
