@@ -1,10 +1,39 @@
+.card{
+  border-radius: border-radius-extreme;
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  background-color: rgb(240, 240, 240);
+  color: card-black-color;
+  margin-bottom: 20px;
+  position: relative;
+  border: 0 none;
+}
+
+.card-body{
+  padding: 15px 15px 10px 15px;
+}
+
+.card-body .card-title {
+  color: gray;
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+.card-body .icon-big {
+  font-size: 3em;
+  min-height: 64px;
+}
+
+.card-body i{
+  line-height: 59px;
+}
+
 .h1-card{
     font-size: 80px;
     align-content: center !important;
     margin-left: 40%;
 }
-.p-card{
+/*.p-card{
     align-content: center;
     font-size: 30px;
     margin-left: 10px;
-}
+} */
