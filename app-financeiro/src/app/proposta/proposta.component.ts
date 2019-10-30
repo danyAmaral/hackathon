@@ -7,8 +7,8 @@ import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { URL_API } from '../app.api'
 import { PropostaService } from '../proposta.service';
-import { ActivatedRoute } from '@angular/router';
 import { DadosFinanceiros } from '../shared/dados-financeiros.model';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-proposta',
@@ -20,7 +20,9 @@ export class PropostaComponent implements OnInit {
   public idProposta:number;
   public status:string = "Rascunho";
   constructor(private propostaService: PropostaService,
-    private route: ActivatedRoute, private formBuilder: FormBuilder) {
+              private route: ActivatedRoute, 
+              private router:Router,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
@@ -165,7 +167,9 @@ export class PropostaComponent implements OnInit {
   public incluir(itemProposta:Proposta): void{
     this.propostaService.salvarItem(itemProposta)
     .subscribe((resposta) => {
-      alert('salvo com sucesso!')
+      alert('salvo com sucesso!');
+      this.idProposta = resposta.id;
+      this.router.navigate([`/proposta/${this.idProposta}`])
     });
   }
 }

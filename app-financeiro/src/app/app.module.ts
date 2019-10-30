@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxCurrencyModule } from "ngx-currency";
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,6 +55,7 @@ import {
     DxChartModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxCurrencyModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [
