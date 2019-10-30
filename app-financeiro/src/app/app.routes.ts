@@ -5,12 +5,7 @@ import { GraficoCrescimentoComponent } from './dashboard/grafico-crescimento/gra
 import { GraficoSetorComponent } from './dashboard/grafico-setor/grafico-setor.component'
 
 export const ROUTES: Routes = [
-    { path: '', component: DashboardComponent,
-        children: [
-            { path: 'grafico-crescimento', component: GraficoCrescimentoComponent },
-            { path: 'grafico-setor', component: GraficoSetorComponent }
-        ]
-    },
+    { path: '', component: DashboardComponent },
     { path: 'proposta', component: PropostaComponent },
     { path: 'proposta/:id', component: PropostaComponent }
 ]
