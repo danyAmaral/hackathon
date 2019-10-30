@@ -10,6 +10,7 @@ import { PropostaService } from '../proposta.service';
 import { DadosFinanceiros } from '../shared/dados-financeiros.model';
 import {ActivatedRoute, Router} from '@angular/router';
 
+
 @Component({
   selector: 'app-proposta',
   templateUrl: './proposta.component.html',
@@ -126,8 +127,29 @@ export class PropostaComponent implements OnInit {
     itemProposta.status = this.formulario.value.status;
     itemProposta.dataInicio = this.formulario.value.dataInicio;
     itemProposta.dataTermino = this.formulario.value.dataTermino;
-    itemProposta.dadosFinanceiros = this.formulario.value.dadosFinanceiros;
+    let itensConvertidos = new Array<DadosFinanceiros>();
+    for(let i =0; i < this.formulario.value.dadosFinanceiros.length; i++)
+    {
+      let elemento = this.formulario.value.dadosFinanceiros[i];
+      let item = new DadosFinanceiros();
+      item.ano = <number>elemento.ano;
+      item.janeiro = <number>elemento.janeiro;
+      item.fevereiro = <number>elemento.fevereiro;
+      item.marco = <number>elemento.marco;
+      item.abril = <number>elemento.abril;
+      item.maio = <number>elemento.maio;
+      item.junho = <number>elemento.junho;
+      item.julho = <number>elemento.julho;
+      item.agosto = <number>elemento.agosto;
+      item.setembro = <number>elemento.setembro;
+      item.outubro = <number>elemento.outubro;
+      item.novembro = <number>elemento.novembro;
+      item.dezembro = <number>elemento.dezembro;
+      itensConvertidos.push(item);
+    }
 
+    itemProposta.dadosFinanceiros = itensConvertidos;
+  
     return itemProposta;
   }
   public atualizar(itemProposta:Proposta): void{

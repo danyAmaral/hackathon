@@ -1,6 +1,7 @@
 import { Component, OnInit, NgModule, enableProdMode } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { GraficoSetorService, DataChart } from '../../grafico-setor.service';
+import { PropostaService } from 'src/app/proposta.service';
 
 @Component({
   selector: 'app-grafico-setor',
@@ -13,10 +14,15 @@ export class GraficoSetorComponent implements OnInit {
 
   dataSource: DataChart[];
 
-  constructor(private service: GraficoSetorService) {
-    this.dataSource = this.service.getInvestimentoPorArea();
+  constructor(private service: GraficoSetorService, private propostaService: PropostaService) {
+    this.iniciar();
   }
 
+  public iniciar(){
+    this.propostaService.getAll().then( (resposta) => {
+      this.dataSource = this.service.getInvestimentoPorArea(resposta);
+    })
+  }
   customizeTooltip = (arg: any) => {
     return {
         text: 'Propostas aprovadas: ' + arg.valueText + ' - ' + this.pipeCurrency.transform(arg.point.data.tag)
