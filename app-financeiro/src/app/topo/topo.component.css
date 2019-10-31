@@ -22,3 +22,7 @@
 nav {
     background-color: white;
 }
+.container {
+    width: calc( 100% );
+    max-width: calc( 100% );
+}

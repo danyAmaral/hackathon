@@ -1,15 +1,14 @@
-<div class="novo-container" style="margin-top: 120px;" >
+<div class="novo-container" style="margin-top: 120px;">
   <form [formGroup]="formulario" *ngIf="formulario" novalidate (ngSubmit)="salvarProposta()">
     <div class="form-group">
       <h2>Proposta</h2>
       <label>Título</label>
-      <input type="text" class="form-control" id="txtTitulo" placeholder="Título da proposta" 
-      formControlName="titulo"  >
+      <input type="text" class="form-control" id="txtTitulo" placeholder="Título da proposta" formControlName="titulo">
     </div>
     <div class="form-group">
       <label>Descrição</label>
-      <textarea class="form-control" id="txtDescricao" rows="3" placeholder="Descrição da proposta" 
-      formControlName="descricao"></textarea>
+      <textarea class="form-control" id="txtDescricao" rows="3" placeholder="Descrição da proposta"
+        formControlName="descricao"></textarea>
     </div>
     <div class="form-group">
       <div class="row">
@@ -26,18 +25,15 @@
         </div>
         <div class="col-sm-3">
           <label>Data de Início</label>
-          <dx-date-box id="selected-date" class="form-control" width="100%" 
-          formControlName="dataInicio" 
-          ></dx-date-box>
+          <dx-date-box id="selected-date" class="form-control" width="100%" formControlName="dataInicio"></dx-date-box>
         </div>
         <div class="col-sm-3">
           <label>Data de Término</label>
-          <dx-date-box id="selected-date" class="form-control" width="100%" 
-          formControlName="dataTermino"></dx-date-box>
+          <dx-date-box id="selected-date" class="form-control" width="100%" formControlName="dataTermino"></dx-date-box>
         </div>
         <div class="col-sm-3">
           <label>Status</label>
-          <select class="form-control" id="ddlStatus" formControlName="status" disabled >
+          <select class="form-control" id="ddlStatus" formControlName="status" disabled>
             <option>Rascunho</option>
             <option>Aguardando Aprovação</option>
             <option>Aprovada</option>
@@ -46,56 +42,71 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <button type="button" (click)="addNovaLinha($event)" class="btn btn-primary btn" >+</button>
-      <div  formArrayName="dadosFinanceiros">
-         <table>
-           <thead>
-              <th>Ano</th>
-              <th>Jan</th>
-              <th>Fev</th>
-              <th>Mar</th>
-              <th>Abr</th>
-              <th>Mai</th>
-              <th>Jun</th>
-              <th>Jul</th>
-              <th>Ago</th>
-              <th>Set</th>
-              <th>Out</th>
-              <th>Nov</th>
-              <th>Dez</th>
-           </thead>
-           <tbody>
-             <tr *ngFor="let item of getFormArrayControls(); let i = index" [formGroupName]="i">
-               <td><input type="text" formControlName = "ano" class="form-control" /></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "janeiro" class="form-control"/></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "fevereiro" class="form-control"/></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "marco" class="form-control" /></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "abril" class="form-control"/></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "maio" class="form-control" /></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "junho" class="form-control" /></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "julho"class="form-control" /></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "agosto" class="form-control" /></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "setembro" class="form-control"/></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "outubro" class="form-control" /></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "novembro" class="form-control" /></td>
-               <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "dezembro" class="form-control"/></td>
-               <td> <input type="button" class="btn btn-danger" value="X" (click)="remover(i)" /></td>
-             </tr>
-           </tbody>
-         </table>
+    <div class="form-group">
+      <button type="button" (click)="addNovaLinha($event)" class="btn btn-primary btn">+</button>
+      <div formArrayName="dadosFinanceiros">
+        <table>
+          <thead>
+            <th>Ano</th>
+            <th>Jan</th>
+            <th>Fev</th>
+            <th>Mar</th>
+            <th>Abr</th>
+            <th>Mai</th>
+            <th>Jun</th>
+            <th>Jul</th>
+            <th>Ago</th>
+            <th>Set</th>
+            <th>Out</th>
+            <th>Nov</th>
+            <th>Dez</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of getFormArrayControls(); let i = index" [formGroupName]="i">
+              <td><input type="text" formControlName="ano" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="janeiro" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="fevereiro" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="marco" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="abril" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="maio" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="junho" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="julho" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="agosto" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="setembro" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="outubro" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="novembro" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  formControlName="dezembro" class="form-control" /></td>
+              <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"
+                  class="form-control" /></td>
+              <td> <input type="button" class="btn btn-danger" value="X" (click)="remover(i)" /></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="row" style="margin-top: 20px;">
-        <div class="form-group">
-            <div *ngIf="status == 'Rascunho'">
-              <button type="submit" class="btn btn-info">Salvar</button>
-              <button type="button" class="btn btn-success" (click)="enviar($event)" style="margin-left: 10px;" >Enviar</button>
-            </div>
-           <div *ngIf="status == 'Aguardando Aprovação'">
-              <button type="button" class="btn btn-success" style="margin-left: 10px;" (click)="aprovar($event)" >Aprovar</button>
-              <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="reprovar($event)" >Reprovar</button>   
-          </div> 
+    <div class="form-group">
+      <div *ngIf="status == 'Rascunho'">
+        <button type="submit" class="btn btn-info">Salvar</button>
+        <button type="button" class="btn btn-success" (click)="enviar($event)"
+          style="margin-left: 10px;">Enviar</button>
+      </div>
+      <div *ngIf="status == 'Aguardando Aprovação'">
+        <button type="button" class="btn btn-success" style="margin-left: 10px;"
+          (click)="aprovar($event)">Aprovar</button>
+        <button type="button" class="btn btn-danger" style="margin-left: 10px;"
+          (click)="reprovar($event)">Reprovar</button>
       </div>
     </div>
   </form>

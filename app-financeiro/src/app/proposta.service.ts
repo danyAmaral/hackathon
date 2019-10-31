@@ -74,6 +74,7 @@ export class PropostaService {
             item.area = element.area;
             item.valorTotal = 0;
             item.dadosFinanceiros = new Array<DadosFinanceirosDashboard>();
+            
             for (let i = 0; i < element.dadosFinanceiros.length; i++) {
                 let registro = element.dadosFinanceiros[i];
 

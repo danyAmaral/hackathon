@@ -1,11 +1,6 @@
-import { Component, OnInit, NgModule, enableProdMode } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { Component, OnInit } from '@angular/core';
 import { Proposta } from '../shared/proposta.model';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
-import { HttpClient, HttpRequest, HttpHeaders } from '@angular/common/http'
-import { Observable } from 'rxjs'
-import { URL_API } from '../app.api'
 import { PropostaService } from '../proposta.service';
 import { DadosFinanceiros } from '../shared/dados-financeiros.model';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -67,6 +62,12 @@ export class PropostaComponent implements OnInit {
     });
 
   }
+
+  getTotalLinha(i){
+    let item = (<FormArray>this.formulario.get('dadosFinanceiros'))[i];
+    let total = <number>item.janeiro + <number>item.fevereiro;
+    return total;
+  } 
 
   addDadosFinanceirosFormGroup(item?: DadosFinanceiros): void {
        (<FormArray>this.formulario.get('dadosFinanceiros')).push(this.formBuilder.group({

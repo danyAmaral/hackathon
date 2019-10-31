@@ -2,26 +2,6 @@
     margin: auto;
 }
  
-@media (min-width: 1200px) {
-    .novo-container {
-        max-width: calc( 100% - 50px );
-    }
-}
- 
-@media (min-width: 992px) {
-    .novo-container {
-        max-width: calc( 100% - 50px );
-    }
-}
- 
-@media (min-width: 768px) {
-    .novo-container {
-        max-width: calc( 100% - 50px );
-    }
-}
- 
-@media (min-width: 576px){
-    .novo-container {
-        max-width: calc( 100% - 50px );
-    }
+.novo-container {
+    width: calc( 100% - 50px );
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit, NgModule, enableProdMode, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { GraficoSetorService, DataChart } from '../../grafico-setor.service';
-import { PropostaService } from 'src/app/proposta.service';
 import { PropostaDashboard } from 'src/app/shared/proposta.dashboard.model';
 
 @Component({
@@ -17,7 +16,7 @@ export class GraficoSetorComponent {
 
   dataSource: DataChart[];
 
-  constructor(private service: GraficoSetorService, private propostaService: PropostaService) {
+  constructor(private service: GraficoSetorService) {
     this.iniciar();
   }
 

@@ -1,11 +1,5 @@
 import { Component, OnInit, NgModule, enableProdMode } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { DxChartModule } from 'devextreme-angular';
-import { Proposta } from '../../shared/proposta.model'
 import { GraficoCrescimentoService, AreaChartValues } from '../../grafico-crescimento.service';
-import { DadosFinanceiros } from 'src/app/shared/dados-financeiros.model';
-
 
 @Component({
   selector: 'app-grafico-crescimento',
