@@ -32,9 +32,15 @@
   <div *ngIf="itensPropostaCache !== undefined">
     <app-cards [itensPropostaCache]="itensPropostaCache"></app-cards>
   </div>
-  <app-grafico-crescimento></app-grafico-crescimento>
-  <div *ngIf="itensPropostaCache !== undefined">
-    <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
+  <div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;">
+      <app-grafico-crescimento></app-grafico-crescimento>
+    </div>
+    <div style="margin-left: 620px;">
+      <div *ngIf="itensPropostaCache !== undefined">
+        <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
+      </div>
+    </div>
   </div>
   <app-grafico-linhas></app-grafico-linhas>
   <app-listagem></app-listagem>

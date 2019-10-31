@@ -13,6 +13,9 @@
         </dxo-legend>
         <dxo-tooltip [enabled]="true" contentTemplate="content">
         </dxo-tooltip>
+        <dxo-size
+            [height]="380"
+            [width]="500"></dxo-size>
         <div *dxTemplate="let info of 'content'" class='state-tooltip'>
             <div>
                 Período: {{ info.argument }}
