@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './dashboard/cards/cards.component';
 import { GraficoCrescimentoComponent } from './dashboard/grafico-crescimento/grafico-crescimento.component';
 import { GraficoSetorComponent } from './dashboard/grafico-setor/grafico-setor.component';
+import { GraficoLinhasComponent } from './dashboard/grafico-linhas/grafico-linhas.component';
 import { ListagemComponent } from './dashboard/listagem/listagem.component';
 import { PropostaComponent } from './proposta/proposta.component';
 import { RouterModule } from '@angular/router';
@@ -41,7 +42,8 @@ import { AppComponent } from './app.component';
     ListagemComponent,
     PropostaComponent,
     TopoComponent,
-    RodapeComponent
+    RodapeComponent,
+    GraficoLinhasComponent
   ],
   imports: [
     BrowserModule,
