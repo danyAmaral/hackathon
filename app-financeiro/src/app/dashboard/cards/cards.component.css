@@ -16,6 +16,8 @@
   color: rgb(151, 151, 151);
   font-size: 16px;
   line-height: 1.4em;
+  margin-left: 35%;
+  width: max-content;
 }
 
 .card-body .icon-big {
@@ -28,13 +30,15 @@
 }
 
 .h1-card{
-    font-size: 60px;
-    align-content: center !important;
-    margin-left: 40%;
+  position: absolute;
+  font-size: 60px;
+  align-content: center !important;
+  margin-left: 60%;
 }
 
 .card-footer{
   background-color: transparent;
+  padding: 4px 10px 2px 9px;
   border: 0;
 }
 
