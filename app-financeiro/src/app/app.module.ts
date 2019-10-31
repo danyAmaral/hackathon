@@ -17,6 +17,7 @@ import { RodapeComponent } from './rodape/rodape.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PropostaService } from './proposta.service';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 import {
   DxSelectBoxModule,
@@ -60,7 +61,8 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgxCurrencyModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
     PropostaService

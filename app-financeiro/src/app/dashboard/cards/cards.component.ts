@@ -7,15 +7,15 @@ import { PropostaDashboard } from 'src/app/shared/proposta.dashboard.model';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-  
+
   @Input() public itensPropostaCache;
 
   public propostasRascunho:number = 0;
   public propostasAprovadas:number = 0;
   public propostasRecusadas:number = 0;
   public propostasAguardandoAprovacao:number = 0;
-  constructor() { 
-   
+  constructor() {
+
   }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class CardsComponent implements OnInit {
     this.itensPropostaCache = changes.itensPropostaCache.currentValue;
     this.iniciar();
   }
-  
+
   public iniciar(){
     if(this.itensPropostaCache)
     {
@@ -38,8 +38,8 @@ export class CardsComponent implements OnInit {
     console.log('preencherTotalizadores')
     let a= itensCache.filter(x => { return x.status == "Rascunho";});
       this.propostasRascunho = itensCache.filter(x => { return x.status == "Rascunho";}).length;
-      this.propostasAprovadas = itensCache.filter(x => { return x.status == "Aprovadas";}).length;
-      this.propostasRecusadas = itensCache.filter(x => { return x.status == "Reprovadas";}).length;
+      this.propostasAprovadas = itensCache.filter(x => { return x.status == "Aprovada";}).length;
+      this.propostasRecusadas = itensCache.filter(x => { return x.status == "Reprovada";}).length;
       this.propostasAguardandoAprovacao = itensCache.filter(x => { return x.status == "Aguardando Aprovação";}).length;
       console.log(this.propostasRascunho)
   }

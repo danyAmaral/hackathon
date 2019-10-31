@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { ListagemService } from './listagem.service';
-import { Proposta } from 'src/app/shared/proposta.model';
+import { PropostaService } from '../../proposta.service';
+import { PropostaDashboard } from 'src/app/shared/proposta.dashboard.model';
 
 @Component({
   selector: 'app-listagem',
   templateUrl: './listagem.component.html',
   styleUrls: ['./listagem.component.css'],
-  providers: [ListagemService]
+  providers: [PropostaService]
 })
 export class ListagemComponent implements OnInit {
-  public propostas: Array<Proposta>;
+  public propostas: Array<PropostaDashboard>;
 
-  constructor(private listagemService: ListagemService) { }
+  constructor(private listagemService: PropostaService) { }
 
   ngOnInit() {
-    this.propostas = this.listagemService.getAll();
+    this.listagemService.getAll().then((itens) => {
+      this.propostas = itens;
+    });
   }
 
 }

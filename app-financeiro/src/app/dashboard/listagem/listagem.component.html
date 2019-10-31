@@ -7,11 +7,9 @@
 
     <dxi-column dataField="id" caption="ID" width="60px"></dxi-column>
     <dxi-column dataField="titulo" caption="Título"></dxi-column>
-    <dxi-column dataField="descricao" caption="Descrição"></dxi-column>
     <dxi-column dataField="area" caption="Área"></dxi-column>
     <dxi-column dataField="status" caption="Situação" [groupIndex]="0"></dxi-column>
-    <dxi-column dataField="dataInicio" caption="Início"></dxi-column>
-    <dxi-column dataField="dataTermino" caption="Término"></dxi-column>
+    <dxi-column dataField="valorTotal" caption="Total" format="currency"></dxi-column>
 
     <dxo-search-panel [visible]="true"></dxo-search-panel>
     <dxo-paging [pageSize]="10"></dxo-paging>

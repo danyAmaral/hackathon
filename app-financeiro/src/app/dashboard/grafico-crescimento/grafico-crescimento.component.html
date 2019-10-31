@@ -1,4 +1,4 @@
-<div id="chart-demo">
+<div id="chart-demo" style="margin-top: 50px;">
     <dx-chart title="Investimento por Área" palette="Harmony Light" [dataSource]="areasData">
         <dxi-series valueField="operacional" name="Operacional"></dxi-series>
         <dxi-series valueField="comercial" name="Comercial"></dxi-series>
@@ -16,7 +16,7 @@
         <div *dxTemplate="let info of 'content'" class='state-tooltip'>
             <div>
                 Período: {{ info.argument }}
-            </div>          
+            </div>
             <div>
                 Area: {{ info.seriesName }}
             </div>
