@@ -1,0 +1,23 @@
+<dx-pie-chart id="pie" type="doughnut" title="Propostas Aprovadas por Setor" palette="Soft Pastel"
+    [dataSource]="dataSource">
+    <dxi-series argumentField="setor">
+        <dxo-label [visible]="true">
+            <dxo-connector [visible]="true"></dxo-connector>
+        </dxo-label>
+    </dxi-series>
+    <dxo-export [enabled]="true"></dxo-export>
+    <dxo-legend [margin]="0" horizontalAlignment="right" verticalAlignment="top">
+    </dxo-legend>
+    <dxo-tooltip [enabled]="true" [customizeTooltip]="customizeTooltip">
+    </dxo-tooltip>
+    <dxo-tooltip [enabled]="true" contentTemplate="content">
+    </dxo-tooltip>
+    <div *dxTemplate="let info of 'content'" class='state-tooltip'>
+        <div>
+            Area: {{ info.argument }}
+        </div>
+        <div>
+            Valor: {{ info.value | currency:'BRL' }}
+        </div>
+    </div>
+</dx-pie-chart>
