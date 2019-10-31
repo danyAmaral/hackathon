@@ -80,6 +80,7 @@
                <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "outubro" class="form-control" /></td>
                <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "novembro" class="form-control" /></td>
                <td> <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" formControlName = "dezembro" class="form-control"/></td>
+               <td> <input type="button" class="btn btn-danger" value="X" (click)="remover(i)" /></td>
              </tr>
            </tbody>
          </table>
