@@ -10,7 +10,7 @@ import { PropostaDashboard } from 'src/app/shared/proposta.dashboard.model';
   styleUrls: ['./grafico-setor.component.css'],
   providers: [GraficoSetorService]
 })
-export class GraficoSetorComponent implements OnInit {
+export class GraficoSetorComponent {
   pipeCurrency: any = new CurrencyPipe('en-US');
 
   @Input() public itensPropostaCache;
@@ -20,27 +20,17 @@ export class GraficoSetorComponent implements OnInit {
   constructor(private service: GraficoSetorService, private propostaService: PropostaService) {
     this.iniciar();
   }
-  
+
   ngOnChanges(changes: SimpleChanges) {
     this.itensPropostaCache = changes.itensPropostaCache.currentValue;
-    console.log('entrei no change')
-    console.log(this.itensPropostaCache)
+    console.log('entrei no change');
+    console.log(this.itensPropostaCache);
     this.iniciar();
   }
 
-  public iniciar(){
-    if(this.itensPropostaCache)
-    {
+  public iniciar() {
+    if (this.itensPropostaCache) {
       this.dataSource = this.service.getInvestimentoPorArea(this.itensPropostaCache);
     }
   }
-  customizeTooltip = (arg: any) => {
-    return {
-        text: 'Propostas aprovadas: ' + arg.valueText + ' - ' + this.pipeCurrency.transform(arg.point.data.tag)
-    };
-}
-
-  ngOnInit() {
-  }
-
 }

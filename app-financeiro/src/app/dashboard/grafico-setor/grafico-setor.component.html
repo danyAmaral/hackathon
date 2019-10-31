@@ -10,4 +10,14 @@
     </dxo-legend>
     <dxo-tooltip [enabled]="true" [customizeTooltip]="customizeTooltip">
     </dxo-tooltip>
+    <dxo-tooltip [enabled]="true" contentTemplate="content">
+    </dxo-tooltip>
+    <div *dxTemplate="let info of 'content'" class='state-tooltip'>
+        <div>
+            Area: {{ info.argument }}
+        </div>
+        <div>
+            Valor: {{ info.value | currency:'BRL' }}
+        </div>
+    </div>
 </dx-pie-chart>

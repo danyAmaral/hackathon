@@ -1,58 +1,28 @@
 <div id="chart-demo">
-        <div class="option">
-            <span>Tipo de Visualização</span>
-            <dx-select-box [dataSource]="types" [(value)]="commonSeries.type">
-            </dx-select-box>
-        </div>
     <dx-chart title="Investimento por Área" palette="Harmony Light" [dataSource]="areasData">
         <dxi-series valueField="operacional" name="Operacional"></dxi-series>
         <dxi-series valueField="comercial" name="Comercial"></dxi-series>
         <dxi-series valueField="financeiro" name="Financeiro"></dxi-series>
         <dxi-series valueField="infraestrutura" name="Infraestrutura"></dxi-series>
-        <dxo-common-series-settings #commonSeries argumentField="periodo" type="area">
+        <dxo-common-series-settings #commonSeries argumentField="periodo" type="stackedarea">
         </dxo-common-series-settings>
         <dxo-margin [bottom]="20"></dxo-margin>
         <dxo-argument-axis [valueMarginsEnabled]="false"></dxo-argument-axis>
         <dxo-export [enabled]="true"></dxo-export>
         <dxo-legend verticalAlignment="bottom" horizontalAlignment="center">
         </dxo-legend>
+        <dxo-tooltip [enabled]="true" contentTemplate="content">
+        </dxo-tooltip>
+        <div *dxTemplate="let info of 'content'" class='state-tooltip'>
+            <div>
+                Período: {{ info.argument }}
+            </div>          
+            <div>
+                Area: {{ info.seriesName }}
+            </div>
+            <div>
+                Valor: {{ info.value | currency:'BRL' }}
+            </div>
+        </div>
     </dx-chart>
-
 </div>
-
-<!-- <dx-chart id="chart" [dataSource]="dataSource" title="Gráfico de Crescimento" palette="Harmony Light" [valueAxis]="[{
-        name: 'frequency',
-        position: 'left',
-        tickInterval: 300
-    }, {
-        name: 'percentage',
-        position: 'right',
-        showZero: true,
-        label: {
-            customizeText: customizeLabelText
-        },
-        constantLines: [{
-            value: 80,
-            color: '#fc3535',
-            dashStyle: 'dash',
-            width: 2,
-            label: { visible: false }
-        }],
-        tickInterval: 20,
-        valueMarginsEnabled: false
-    }]">
-    <dxo-argument-axis>
-        <dxo-label overlappingBehavior="stagger"></dxo-label>
-    </dxo-argument-axis>
-    <dxo-tooltip [enabled]="true" [shared]="true" [customizeTooltip]="customizeTooltip">
-    </dxo-tooltip>
-    <dxo-common-series-settings argumentField="MesAno">
-    </dxo-common-series-settings>
-    <dxi-series type="bar" valueField="valor" axis="frequency" name="Valor" color="#fac29a">
-    </dxi-series>
-    <dxi-series type="spline" valueField="valorAcumulado" axis="percentage" name="Valor Acumulado"
-        color="#6b71c3">
-    </dxi-series>
-    <dxo-legend verticalAlignment="top" horizontalAlignment="center">
-    </dxo-legend>
-</dx-chart> -->

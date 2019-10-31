@@ -1,13 +1,13 @@
 <div id="chart-demo">
-    <div class="option">
+    <!-- <div class="option">
         <span>Tipo de Visualização</span>
         <dx-select-box [dataSource]="types" [(value)]="seriesSettings.type">
         </dx-select-box>
-    </div>
-    <dx-chart palette="Violet" [dataSource]="countriesInfo">
-        <dxi-series *ngFor="let energy of energySources" [valueField]="energy.value" [name]="energy.name">
+    </div> -->
+    <dx-chart palette="Violet" [dataSource]="dataSource">
+        <dxi-series *ngFor="let area of areas" [valueField]="area.value" [name]="area.name">
         </dxi-series>
-        <dxo-common-series-settings #seriesSettings argumentField="country" [type]="types[0]">
+        <dxo-common-series-settings #seriesSettings argumentField="mesAno" [type]="line">
         </dxo-common-series-settings>
         <dxo-margin [bottom]="20"></dxo-margin>
         <dxo-argument-axis [valueMarginsEnabled]="false" discreteAxisDivisionMode="crossLabels">
@@ -20,7 +20,18 @@
             </dxo-subtitle>
         </dxo-title>
         <dxo-export [enabled]="true"></dxo-export>
-        <dxo-tooltip [enabled]="true" [customizeTooltip]="customizeTooltip">
+        <dxo-tooltip [enabled]="true" contentTemplate="content">
         </dxo-tooltip>
+        <div *dxTemplate="let info of 'content'" class='state-tooltip'>
+            <div>
+                Período: {{ info.argument }}
+            </div>          
+            <div>
+                Area: {{ info.seriesName }}
+            </div>
+            <div>
+                Valor: {{ info.value | currency:'BRL' }}
+            </div>
+        </div>
     </dx-chart>
 </div>

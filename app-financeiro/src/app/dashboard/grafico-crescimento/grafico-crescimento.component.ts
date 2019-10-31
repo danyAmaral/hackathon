@@ -16,9 +16,9 @@ import { DadosFinanceiros } from 'src/app/shared/dados-financeiros.model';
 export class GraficoCrescimentoComponent implements OnInit {
 
   areasData: AreaChartValues[];
-  types: string[] = ["area", "stackedarea", "fullstackedarea"];
+  types: string[] = ['area', 'stackedarea', 'fullstackedarea'];
   
-  constructor(private service: GraficoCrescimentoService) {    
+  constructor(private service: GraficoCrescimentoService) {
     this.areasData = service.getInvestimentoPorArea();
   }
 
@@ -36,7 +36,7 @@ export class GraficoCrescimentoComponent implements OnInit {
   //       "</div><div class='series-name'>" +
   //       info.points[1].seriesName +
   //       ": </div><div class='value-text'>" +
-  //       info.points[1].valueText + 
+  //       info.points[1].valueText +
   //       "</div></div></div>"
   //   };
   // }
