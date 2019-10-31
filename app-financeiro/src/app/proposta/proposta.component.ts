@@ -94,6 +94,11 @@ export class PropostaComponent implements OnInit {
   {
       this.addDadosFinanceirosFormGroup();
   }
+
+  public remover(index){
+     (<FormArray>this.formulario.get('dadosFinanceiros')).removeAt(index);
+  }
+
   ngOnDestroy() {
   }
 
@@ -185,7 +190,7 @@ export class PropostaComponent implements OnInit {
 
     return itemProposta;
   }
-
+  
   public incluir(itemProposta:Proposta): void{
     this.propostaService.salvarItem(itemProposta)
     .subscribe((resposta) => {
