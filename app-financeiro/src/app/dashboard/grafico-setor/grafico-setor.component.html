@@ -1,8 +1,9 @@
-<dx-pie-chart id="pie" type="doughnut" title="Propostas Aprovadas por Setor" palette="Soft Pastel"
-    [dataSource]="dataSource">
+<dx-pie-chart id="pie" title="Propostas por Área" palette="Soft Pastel" [dataSource]="dataSource">
     <dxi-series argumentField="setor">
         <dxo-label [visible]="true">
-            <dxo-connector [visible]="true"></dxo-connector>
+            <dxo-connector
+                [visible]="true"
+                [width]="1"></dxo-connector>
         </dxo-label>
     </dxi-series>
     <dxo-export [enabled]="true"></dxo-export>
@@ -17,7 +18,7 @@
             Area: {{ info.argument }}
         </div>
         <div>
-            Valor: {{ info.value | currency:'BRL' }}
+            Valor: {{ info.value}} %
         </div>
     </div>
-</dx-pie-chart>
+</dx-pie-chart> 
