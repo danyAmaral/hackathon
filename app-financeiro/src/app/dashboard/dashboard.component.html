@@ -1,7 +1,33 @@
 <div id="todo-conteudo" class="container" style="margin-top: 100px;">
+        <div class="row">
+                <div class="col-sm-3">
+                        <label>Área</label>
+                        <select class="form-control" id="ddlArea" (change)="filtrar($event)">
+                                <option>Todas</option>
+                                <option>Administrativo</option>
+                                <option>Comercial</option>
+                                <option>Financeiro</option>
+                                <option>Operacional</option>
+                                <option>Recursos Humanos</option>
+                                <option>TI</option>
+                        </select>
+                </div>
+                <div class="col-sm-3">
+                        <label>Status</label>
+                        <select class="form-control" id="ddlStatus" (change)="filtrar($event)">
+                                <option>Todos</option>
+                                <option>Rascunho</option>
+                                <option>Aguardando Aprovação</option>
+                                <option>Aprovada</option>
+                                <option>Reprovada</option>
+                        </select>
+                </div>
+        </div>
         <app-cards></app-cards>
         <app-grafico-crescimento></app-grafico-crescimento>
-        <app-grafico-setor></app-grafico-setor>
+        <div *ngIf="itensPropostaCache !== undefined">
+                <app-grafico-setor [itensPropostaCache]=itensPropostaCache></app-grafico-setor>
+        </div>
         <app-listagem></app-listagem>
         <!-- <router-outlet></router-outlet> -->
 </div>
