@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule, enableProdMode, Input, SimpleChanges } from '@angular/core';
+import { Component, OnInit, NgModule, enableProdMode, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { GraficoSetorService, DataChart } from '../../grafico-setor.service';
 import { PropostaService } from 'src/app/proposta.service';
@@ -29,9 +29,10 @@ export class GraficoSetorComponent implements OnInit {
   }
 
   public iniciar(){
-    this.propostaService.getAll().then( (resposta) => {
-      this.dataSource = this.service.getInvestimentoPorArea(resposta);
-    })
+    if(this.itensPropostaCache)
+    {
+      this.dataSource = this.service.getInvestimentoPorArea(this.itensPropostaCache);
+    }
   }
   customizeTooltip = (arg: any) => {
     return {
