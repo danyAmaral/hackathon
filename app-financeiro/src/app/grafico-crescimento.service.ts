@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { Proposta } from './shared/proposta.model'
 import { DadosFinanceiros } from './shared/dados-financeiros.model'
 import { PropostaDashboard } from './shared/proposta.dashboard.model';
+import { AREA_RH, AREA_TI, AREA_OPERACIONAL, AREA_FINANCEIRO, AREA_COMERCIAL, AREA_ADMINISTRATIVO, MES_JANEIRO,
+         MES_FEVEREIRO, MES_MARCO, MES_ABRIL, MES_MAIO, MES_JUNHO, MES_JULHO, MES_AGOSTO, MES_SETEMBRO, MES_OUTUBRO, 
+         MES_NOVEMBRO, MES_DEZEMBRO } from './shared/util.model';
 
 export class AreaChartValues {
     administrativo: number =0;
@@ -21,7 +24,7 @@ export class GraficoCrescimentoService {
             .map(y => Object.assign({ area: x.area }, y)))
             .reduce((a, b) => a.concat(b));
 
-       let arrayMeses= ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+       let arrayMeses= [MES_JANEIRO, MES_FEVEREIRO, MES_MARCO, MES_ABRIL, MES_MAIO, MES_JUNHO, MES_JULHO, MES_AGOSTO, MES_SETEMBRO, MES_OUTUBRO, MES_NOVEMBRO, MES_DEZEMBRO];
      
         const dadosAgrupados = [];
 
@@ -42,18 +45,15 @@ export class GraficoCrescimentoService {
         }
         let investimentoAreasData = new Array<AreaChartValues>();
 
-        console.log("******************************")
-        console.log(dadosAgrupados)
-        console.log(dadosAgrupados)
        for (const nomeMes of arrayMeses) {
             let obj = new AreaChartValues(); 
             obj.periodo = nomeMes;
-            let adm = dadosAgrupados.filter((y) =>{  return y.area == "Administrativo" && y.mes == nomeMes });
-            let com = dadosAgrupados.filter((y) =>{  return y.area == "Comercial" && y.mes == nomeMes });
-            let fin = dadosAgrupados.filter((y) =>{  return y.area == "Financeiro" && y.mes == nomeMes });
-            let ope = dadosAgrupados.filter((y) =>{  return y.area == "Operacional" && y.mes == nomeMes });
-            let rh = dadosAgrupados.filter((y) =>{  return y.area == "Recursos Humanos" && y.mes == nomeMes });
-            let ti = dadosAgrupados.filter((y) =>{  return y.area == "TI" && y.mes == nomeMes });
+            let adm = dadosAgrupados.filter((y) =>{  return y.area == AREA_ADMINISTRATIVO && y.mes == nomeMes });
+            let com = dadosAgrupados.filter((y) =>{  return y.area == AREA_COMERCIAL && y.mes == nomeMes });
+            let fin = dadosAgrupados.filter((y) =>{  return y.area == AREA_FINANCEIRO && y.mes == nomeMes });
+            let ope = dadosAgrupados.filter((y) =>{  return y.area == AREA_OPERACIONAL && y.mes == nomeMes });
+            let rh = dadosAgrupados.filter((y) =>{  return y.area == AREA_RH && y.mes == nomeMes });
+            let ti = dadosAgrupados.filter((y) =>{  return y.area == AREA_TI && y.mes == nomeMes });
 
             if(adm.length> 0){
                 obj.administrativo =  adm[0].valor ? adm[0].valor : 0;
