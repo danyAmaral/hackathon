@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { PropostaDashboard } from './shared/proposta.dashboard.model';
 import { DadosFinanceirosDashboard } from './shared/dados-financeiros-dashboard.model';
+import { MES_JANEIRO, MES_FEVEREIRO, MES_MARCO, MES_ABRIL, MES_MAIO, MES_JUNHO, MES_JULHO, MES_AGOSTO, 
+         MES_SETEMBRO, MES_OUTUBRO, MES_NOVEMBRO, MES_DEZEMBRO } from './shared/util.model';
 
 @Injectable()
 export class PropostaService {
@@ -63,7 +65,7 @@ export class PropostaService {
 
   public MapearItensDashboard(todasPropostas: Array<Proposta>): Array<PropostaDashboard> {
     const arrayRetorno: Array<PropostaDashboard> = new Array<PropostaDashboard>();
-    // tslint:disable-next-line: prefer-for-of
+
     for (let j = 0; j < todasPropostas.length; j++) {
       const element = todasPropostas[j];
       const item = new PropostaDashboard();
@@ -74,79 +76,78 @@ export class PropostaService {
       item.valorTotal = 0;
       item.dadosFinanceiros = new Array<DadosFinanceirosDashboard>();
 
-      // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < element.dadosFinanceiros.length; i++) {
         const registro = element.dadosFinanceiros[i];
 
         const jan = new DadosFinanceirosDashboard();
         jan.ano = registro.ano;
-        jan.mes = 'Janeiro';
+        jan.mes = MES_JANEIRO;
         jan.valor = registro.janeiro;
         item.valorTotal += registro.janeiro;
 
         const fev = new DadosFinanceirosDashboard();
         fev.ano = registro.ano;
-        fev.mes = 'Fevereiro';
+        fev.mes = MES_FEVEREIRO;
         fev.valor = registro.fevereiro;
         item.valorTotal += registro.fevereiro;
 
         const mar = new DadosFinanceirosDashboard();
         mar.ano = registro.ano;
-        mar.mes = 'Março';
+        mar.mes = MES_MARCO;
         mar.valor = registro.marco;
         item.valorTotal += registro.marco;
 
         const abr = new DadosFinanceirosDashboard();
         abr.ano = registro.ano;
-        abr.mes = 'Abril';
+        abr.mes = MES_ABRIL;
         abr.valor = registro.abril;
         item.valorTotal += registro.abril;
 
         const mai = new DadosFinanceirosDashboard();
         mai.ano = registro.ano;
-        mai.mes = 'Maio';
+        mai.mes = MES_MAIO;
         mai.valor = registro.maio;
         item.valorTotal += registro.maio;
 
         const jun = new DadosFinanceirosDashboard();
         jun.ano = registro.ano;
-        jun.mes = 'Junho';
+        jun.mes = MES_JUNHO;
         jun.valor = registro.junho;
         item.valorTotal += registro.junho;
 
         const jul = new DadosFinanceirosDashboard();
         jul.ano = registro.ano;
-        jul.mes = 'Julho';
+        jul.mes = MES_JULHO;
         jul.valor = registro.julho;
         item.valorTotal += registro.julho;
 
         const ago = new DadosFinanceirosDashboard();
         ago.ano = registro.ano;
-        ago.mes = 'Agosto';
+        ago.mes = MES_AGOSTO;
         ago.valor = registro.agosto;
         item.valorTotal += registro.agosto;
 
         const set = new DadosFinanceirosDashboard();
         set.ano = registro.ano;
-        set.mes = 'Setembro';
+        set.mes = MES_SETEMBRO;
         set.valor = registro.setembro;
         item.valorTotal += registro.setembro;
 
         const out = new DadosFinanceirosDashboard();
         out.ano = registro.ano;
-        out.mes = 'Outubro';
+        out.mes = MES_OUTUBRO;
         out.valor = registro.outubro;
         item.valorTotal += registro.outubro;
 
         const nov = new DadosFinanceirosDashboard();
         nov.ano = registro.ano;
-        nov.mes = 'Novembro';
+        nov.mes = MES_NOVEMBRO;
         nov.valor = registro.outubro;
         item.valorTotal += registro.outubro;
 
         const dez = new DadosFinanceirosDashboard();
         dez.ano = registro.ano;
-        dez.mes = 'Dezembro';
+        dez.mes = MES_DEZEMBRO;
         dez.valor = registro.dezembro;
         item.valorTotal += registro.dezembro;
 
