@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { PropostaService } from './proposta.service';
 import { PropostaDashboard } from './shared/proposta.dashboard.model';
 
 export class DataChart {
@@ -9,7 +8,6 @@ export class DataChart {
 
 @Injectable()
 export class GraficoSetorService {
-    constructor(private propostaService: PropostaService){}
     public getInvestimentoPorArea(itensCache: Array<PropostaDashboard>): DataChart[] {
         let itensAdm = itensCache.filter(x => { return x.area == "Administrativo";});
         let itensCom = itensCache.filter(x => { return x.area == "Comercial"; });
