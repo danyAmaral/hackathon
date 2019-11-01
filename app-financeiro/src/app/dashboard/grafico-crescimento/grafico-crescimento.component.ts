@@ -10,12 +10,11 @@ import { GraficoCrescimentoService, AreaChartValues } from '../../grafico-cresci
 
 
 export class GraficoCrescimentoComponent implements OnInit {
-  
+
   @Input() public itensPropostaCache;
 
   areasData: AreaChartValues[];
   types: string[] = ['area', 'stackedarea', 'fullstackedarea'];
-  
   constructor(private service: GraficoCrescimentoService) {
   }
 

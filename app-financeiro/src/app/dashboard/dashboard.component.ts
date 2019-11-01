@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit {
       singleSelection: false,
       idField: 'item_id',
       textField: 'item_text',
-      itemsShowLimit: 3,
+      itemsShowLimit: 2,
       selectAllText: 'Selecionar Todos',
       unSelectAllText: 'Nenhum'
     };
@@ -93,7 +93,9 @@ export class DashboardComponent implements OnInit {
     this.propostaService.getAll().then((itens) => {
       this.itensPropostaCache = itens;
       this.propostas = itens;
+      this.filtrar();
     });
+
   }
 
   public filtrar(): void {

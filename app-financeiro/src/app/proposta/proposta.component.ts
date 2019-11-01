@@ -13,11 +13,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class PropostaComponent implements OnInit {
   public formulario: FormGroup;
-  public idProposta:number;
-  public status:string = "Rascunho";
+  public idProposta: number;
+  public status = 'Rascunho';
   constructor(private propostaService: PropostaService,
-              private route: ActivatedRoute, 
-              private router:Router,
+              private route: ActivatedRoute,
+              private router: Router,
               private formBuilder: FormBuilder) {
   }
 
@@ -28,34 +28,32 @@ export class PropostaComponent implements OnInit {
         this.propostaService.getPropostaPorId(parametros.id)
           .then((proposta: Proposta) => {
             this.idProposta = proposta.id;
-            console.log(this.idProposta)
             this.formulario = new FormGroup({
-              'titulo': new FormControl(proposta.titulo, [Validators.required]),
-              'descricao': new FormControl(proposta.descricao, [Validators.required]),
-              'area': new FormControl(proposta.area, [Validators.required]),
-              'status': new FormControl(proposta.status, Validators.required),
-              'dataInicio': new FormControl(proposta.dataInicio, Validators.required),
-              'dataTermino': new FormControl(proposta.dataTermino, Validators.required),
-              'dadosFinanceiros': this.formBuilder.array([])
+              titulo: new FormControl(proposta.titulo, [Validators.required]),
+              descricao: new FormControl(proposta.descricao, [Validators.required]),
+              area: new FormControl(proposta.area, [Validators.required]),
+              status: new FormControl(proposta.status, Validators.required),
+              dataInicio: new FormControl(proposta.dataInicio, Validators.required),
+              dataTermino: new FormControl(proposta.dataTermino, Validators.required),
+              dadosFinanceiros: this.formBuilder.array([])
             });
-            for(let i = 0; i <proposta.dadosFinanceiros.length; i++)
-            {
+            // tslint:disable-next-line: prefer-for-of
+            for(let i = 0; i <proposta.dadosFinanceiros.length; i++) {
               const elemento = proposta.dadosFinanceiros[i];
               this.addDadosFinanceirosFormGroup(elemento);
             }
-            this.status = proposta.status
+            this.status = proposta.status;
           });
-       
-      }
-      else {
+
+      } else {
         this.formulario = new FormGroup({
-          'titulo': new FormControl(null, [Validators.required]),
-          'descricao': new FormControl(null, [Validators.required]),
-          'area': new FormControl(null, [Validators.required]),
-          'status': new FormControl('Rascunho', Validators.required),
-          'dataInicio': new FormControl(new Date(), Validators.required),
-          'dataTermino': new FormControl(new Date(), Validators.required),
-          'dadosFinanceiros': this.formBuilder.array([])
+          titulo: new FormControl(null, [Validators.required]),
+          descricao: new FormControl(null, [Validators.required]),
+          area: new FormControl(null, [Validators.required]),
+          status: new FormControl('Rascunho', Validators.required),
+          dataInicio: new FormControl(new Date(), Validators.required),
+          dataTermino: new FormControl(new Date(), Validators.required),
+          dadosFinanceiros: this.formBuilder.array([])
         });
         this.addDadosFinanceirosFormGroup();
       }
@@ -66,14 +64,14 @@ export class PropostaComponent implements OnInit {
   public getTotalLinha(i){
       let controls = (<FormArray>this.formulario.get('dadosFinanceiros')).controls;
       let item = controls[i];
-      let total = <number>item.get("janeiro").value + item.get("fevereiro").value + 
+      let total = <number>item.get("janeiro").value + item.get("fevereiro").value +
                   <number>item.get("marco").value + item.get("abril").value +
                   <number>item.get("maio").value + item.get("junho").value +
                   <number>item.get("julho").value + item.get("agosto").value +
                   <number>item.get("setembro").value + item.get("outubro").value +
                   <number>item.get("novembro").value + item.get("dezembro").value;
       item.get("total").setValue(total);
-  } 
+  }
 
   public addDadosFinanceirosFormGroup(item?: DadosFinanceiros): void {
        (<FormArray>this.formulario.get('dadosFinanceiros')).push(this.formBuilder.group({
@@ -114,7 +112,7 @@ export class PropostaComponent implements OnInit {
 
   public salvarProposta(): void {
     let itemProposta = this.recuperarDadosFormnulario();
-     if (this.formulario.status != "INVALID") {         
+     if (this.formulario.status != "INVALID") {
       if(this.idProposta)
       {
         this.atualizar(itemProposta)
@@ -125,7 +123,7 @@ export class PropostaComponent implements OnInit {
       }
     }
   }
-  
+
   public recuperarDadosFormnulario(): Proposta{
     if (this.formulario.status == "INVALID") {
       this.formulario.get('titulo').markAllAsTouched();
@@ -202,7 +200,7 @@ export class PropostaComponent implements OnInit {
 
     return itemProposta;
   }
-  
+
   public incluir(itemProposta:Proposta): void{
     this.propostaService.salvarItem(itemProposta)
     .subscribe((resposta) => {

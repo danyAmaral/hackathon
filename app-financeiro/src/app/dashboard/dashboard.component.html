@@ -37,16 +37,11 @@
         <app-grafico-crescimento [itensPropostaCache]="itensPropostaCache"></app-grafico-crescimento>
       </div>
       <div style="margin-left: 620px;">
-        <div *ngIf="itensPropostaCache !== undefined">
-          <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
-        </div>
+        <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
       </div>
     </div>
-    <div *ngIf="itensPropostaCache !== undefined">
-      <app-grafico-linhas [itensPropostaCache]="itensPropostaCache"></app-grafico-linhas>
-    </div>
+    <app-grafico-linhas [itensPropostaCache]="itensPropostaCache"></app-grafico-linhas>
+    <app-listagem [itensPropostaCache]="itensPropostaCache"></app-listagem>
   </div>
-
-  <app-listagem></app-listagem>
   <!-- <router-outlet></router-outlet> -->
 </div>

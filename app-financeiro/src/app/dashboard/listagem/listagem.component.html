@@ -6,7 +6,7 @@
     [showBorders]="true"
     [noDataText]="''">
 
-    <dxi-column dataField="id" caption="ID" width="60px"></dxi-column>
+    <dxi-column dataField="id" caption="ID" width="60px" cellTemplate="link"></dxi-column>
     <dxi-column dataField="titulo" caption="Título"></dxi-column>
     <dxi-column dataField="area" caption="Área"></dxi-column>
     <dxi-column dataField="status" caption="Situação" [groupIndex]="0"></dxi-column>
@@ -16,6 +16,10 @@
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-group-panel [visible]="true"></dxo-group-panel>
     <dxo-grouping #expand [autoExpandAll]="true"></dxo-grouping>
+
+    <div *dxTemplate="let l of 'link'">
+      <a href="http://localhost:4200/proposta/{{l.value}}">{{ l.value }}</a>
+    </div>
   </dx-data-grid>
 </div>
 

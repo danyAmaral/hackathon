@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { PropostaService } from '../../proposta.service';
 import { PropostaDashboard } from 'src/app/shared/proposta.dashboard.model';
 
@@ -8,15 +8,24 @@ import { PropostaDashboard } from 'src/app/shared/proposta.dashboard.model';
   styleUrls: ['./listagem.component.css'],
   providers: [PropostaService]
 })
-export class ListagemComponent implements OnInit {
+export class ListagemComponent {
+  @Input() public itensPropostaCache;
+
   public propostas: Array<PropostaDashboard>;
 
-  constructor(private listagemService: PropostaService) { }
+  constructor(private listagemService: PropostaService) {
+    this.iniciar();
+   }
 
-  ngOnInit() {
-    this.listagemService.getAll().then((itens) => {
-      this.propostas = itens;
-    });
+  ngOnChanges(changes: SimpleChanges) {
+    this.itensPropostaCache = changes.itensPropostaCache.currentValue;
+    this.iniciar();
+  }
+
+  public iniciar() {
+    if (this.itensPropostaCache) {
+      this.propostas = this.itensPropostaCache;
+    }
   }
 
 }

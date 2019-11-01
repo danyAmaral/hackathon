@@ -63,6 +63,7 @@ export class PropostaService {
 
   public MapearItensDashboard(todasPropostas: Array<Proposta>): Array<PropostaDashboard> {
     const arrayRetorno: Array<PropostaDashboard> = new Array<PropostaDashboard>();
+    // tslint:disable-next-line: prefer-for-of
     for (let j = 0; j < todasPropostas.length; j++) {
       const element = todasPropostas[j];
       const item = new PropostaDashboard();
@@ -73,6 +74,7 @@ export class PropostaService {
       item.valorTotal = 0;
       item.dadosFinanceiros = new Array<DadosFinanceirosDashboard>();
 
+      // tslint:disable-next-line: prefer-for-of
       for (let i = 0; i < element.dadosFinanceiros.length; i++) {
         const registro = element.dadosFinanceiros[i];
 

@@ -1,5 +1,5 @@
 <div id="chart-demo">
-    <dx-chart palette="Violet" [dataSource]="dataSource">
+    <dx-chart palette="Soft Pastel" [dataSource]="dataSource">
         <dxi-series *ngFor="let area of areas" [valueField]="area.value" [name]="area.name">
         </dxi-series>
         <dxo-common-series-settings #seriesSettings argumentField="mesAno" [type]="line">
@@ -18,7 +18,7 @@
         <div *dxTemplate="let info of 'content'" class='state-tooltip'>
             <div>
                 Período: {{ info.argument }}
-            </div>          
+            </div>
             <div>
                 Area: {{ info.seriesName }}
             </div>
