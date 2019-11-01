@@ -73,27 +73,25 @@ export class DashboardComponent implements OnInit {
   }
 
   public filtrar(): void {
+    console.log('entrei no filtro')
     const filtroArea = this.filtro.value.area;
     const filtroStatus = this.filtro.value.status;
     let arrayArea = [];
     let arrayStatus = [];
-    // tslint:disable-next-line: prefer-for-of
+
     for (let i = 0; i < filtroArea.length; i++) {
       arrayArea.push(filtroArea[i].item_text);
     }
-    // tslint:disable-next-line: prefer-for-of
+
     for (let k = 0; k < filtroStatus.length; k++) {
       arrayStatus.push(filtroStatus[k].item_text);
     }
-
-    console.log(arrayArea);
-    console.log(arrayStatus);
 
     if ((arrayStatus.length === 0) && (arrayArea.length === 0)) {
       this.selectAll();
     } else {
       this.itensPropostaCache = this.propostas.filter((item) => {
-        return ((arrayArea.indexOf(item.area) !== -1) ||
+        return ((arrayArea.indexOf(item.area) !== -1) &&
           (arrayStatus.indexOf(item.status) !== -1));
       });
     }

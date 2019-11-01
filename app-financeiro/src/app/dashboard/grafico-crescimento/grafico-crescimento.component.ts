@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule, enableProdMode } from '@angular/core';
+import { Component, OnInit, NgModule, enableProdMode, Input } from '@angular/core';
 import { GraficoCrescimentoService, AreaChartValues } from '../../grafico-crescimento.service';
 
 @Component({
@@ -7,7 +7,11 @@ import { GraficoCrescimentoService, AreaChartValues } from '../../grafico-cresci
   styleUrls: ['./grafico-crescimento.component.css'],
   providers: [GraficoCrescimentoService]
 })
+
+
 export class GraficoCrescimentoComponent implements OnInit {
+  
+  @Input() public itensPropostaCache;
 
   areasData: AreaChartValues[];
   types: string[] = ['area', 'stackedarea', 'fullstackedarea'];
@@ -19,24 +23,5 @@ export class GraficoCrescimentoComponent implements OnInit {
   ngOnInit() {
   }
 
-  // customizeTooltip = (info: any) => {
-  //   return {
-  //     html: "<div><div class='tooltip-header'>" +
-  //       info.argumentText + "</div>" +
-  //       "<div class='tooltip-body'><div class='series-name'>" +
-  //       info.points[0].seriesName +
-  //       ": </div><div class='value-text'>" +
-  //       info.points[0].valueText +
-  //       "</div><div class='series-name'>" +
-  //       info.points[1].seriesName +
-  //       ": </div><div class='value-text'>" +
-  //       info.points[1].valueText +
-  //       "</div></div></div>"
-  //   };
-  // }
-
-  // customizeLabelText = (info: any) => {
-  //   return "R$ " + info.valueText;
-  // }
 }
 
