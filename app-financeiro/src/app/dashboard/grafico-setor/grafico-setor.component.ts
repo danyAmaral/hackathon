@@ -5,7 +5,7 @@ import { GraficoSetorService, DataChart } from '../../grafico-setor.service';
   selector: 'app-grafico-setor',
   templateUrl: './grafico-setor.component.html',
   styleUrls: ['./grafico-setor.component.css'],
-  providers: [ GraficoSetorService ]
+  providers: [GraficoSetorService]
 })
 export class GraficoSetorComponent {
   @Input() public itensPropostaCache;

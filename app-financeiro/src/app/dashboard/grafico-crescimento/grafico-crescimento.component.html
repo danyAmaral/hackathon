@@ -1,10 +1,10 @@
 <div id="chart-demo" style="margin-top: 50px;">
-    <dx-chart title="Investimento por Área" palette="Harmony Light" [dataSource]="areasData">
+    <dx-chart title="Investimento Aprovado por Área" palette="Harmony Light" [dataSource]="areasData">
         <dxi-series valueField="operacional" name="Operacional"></dxi-series>
         <dxi-series valueField="comercial" name="Comercial"></dxi-series>
         <dxi-series valueField="financeiro" name="Financeiro"></dxi-series>
         <dxi-series valueField="administrativo" name="Infraestrutura"></dxi-series>
-        <dxi-series valueField="recursosHumanos" name="Infraestrutura"></dxi-series>
+        <dxi-series valueField="recursosHumanos" name="Recursos Humanos"></dxi-series>
         <dxi-series valueField="ti" name="TI"></dxi-series>
         <dxo-common-series-settings #commonSeries argumentField="periodo" type="stackedarea">
         </dxo-common-series-settings>

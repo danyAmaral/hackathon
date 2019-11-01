@@ -142,8 +142,8 @@ export class PropostaService {
         const nov = new DadosFinanceirosDashboard();
         nov.ano = registro.ano;
         nov.mes = MES_NOVEMBRO;
-        nov.valor = registro.outubro;
-        item.valorTotal += registro.outubro;
+        nov.valor = registro.novembro;
+        item.valorTotal += registro.novembro;
 
         const dez = new DadosFinanceirosDashboard();
         dez.ano = registro.ano;
