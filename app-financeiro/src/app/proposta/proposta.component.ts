@@ -64,8 +64,6 @@ export class PropostaComponent implements OnInit {
   }
 
   public getTotalLinha(i){
-      console.log('entreiiiii')
-      console.log(i)
       let controls = (<FormArray>this.formulario.get('dadosFinanceiros')).controls;
       let item = controls[i];
       let total = <number>item.get("janeiro").value + item.get("fevereiro").value + 
@@ -75,7 +73,6 @@ export class PropostaComponent implements OnInit {
                   <number>item.get("setembro").value + item.get("outubro").value +
                   <number>item.get("novembro").value + item.get("dezembro").value;
       item.get("total").setValue(total);
-    console.log(item)
   } 
 
   public addDadosFinanceirosFormGroup(item?: DadosFinanceiros): void {
@@ -116,8 +113,8 @@ export class PropostaComponent implements OnInit {
   }
 
   public salvarProposta(): void {
-     if (this.formulario.status != "INVALID") {
-           let itemProposta = this.recuperarDadosFormnulario();
+    let itemProposta = this.recuperarDadosFormnulario();
+     if (this.formulario.status != "INVALID") {         
       if(this.idProposta)
       {
         this.atualizar(itemProposta)
