@@ -13,7 +13,6 @@ import { PropostaComponent } from './proposta/proposta.component';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { TopoComponent } from './topo/topo.component';
-import { RodapeComponent } from './rodape/rodape.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PropostaService } from './proposta.service';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
@@ -43,7 +42,6 @@ import { AppComponent } from './app.component';
     ListagemComponent,
     PropostaComponent,
     TopoComponent,
-    RodapeComponent,
     GraficoLinhasComponent
   ],
   imports: [
