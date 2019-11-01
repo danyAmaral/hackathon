@@ -62,7 +62,6 @@ export class PropostaService {
   }
 
   public MapearItensDashboard(todasPropostas: Array<Proposta>): Array<PropostaDashboard> {
-    console.log('todas', todasPropostas);
     const arrayRetorno: Array<PropostaDashboard> = new Array<PropostaDashboard>();
     for (let j = 0; j < todasPropostas.length; j++) {
       const element = todasPropostas[j];
@@ -151,7 +150,6 @@ export class PropostaService {
 
         item.dadosFinanceiros.push(jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez);
 
-        console.log(item);
         arrayRetorno.push(item);
       }
     }
