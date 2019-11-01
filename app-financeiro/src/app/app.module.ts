@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxCurrencyModule } from "ngx-currency";
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { PropostaService } from './proposta.service';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
+import { registerLocaleData } from "@angular/common";
+import localePt from "@angular/common/locales/pt";
+registerLocaleData(localePt);
 
 import {
   DxSelectBoxModule,
@@ -63,7 +67,8 @@ import { AppComponent } from './app.component';
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [
-    PropostaService
+    PropostaService,
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   bootstrap: [AppComponent]
 })
