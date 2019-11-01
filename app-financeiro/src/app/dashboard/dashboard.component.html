@@ -3,47 +3,34 @@
     <div class="row">
       <div class="col-sm-6">
         <label>Área</label>
-        <ng-multiselect-dropdown
-          id="ddlArea"
-          formControlName="area"
-          [placeholder]="'Selecione'"
-          [data]="listAreas"
-          [(ngModel)]="selectedAreas"
-          [settings]="dropdownSettings"
-          (onSelect)="filtrar($event)"
-          (onSelectAll)="selectAll($event)"
-          (onDeSelect)="filtrar($event)">
+        <ng-multiselect-dropdown id="ddlArea" formControlName="area" [placeholder]="'Selecione'" [data]="listAreas"
+          [(ngModel)]="selectedAreas" [settings]="dropdownSettings" (onSelect)="filtrar($event)"
+          (onSelectAll)="selectAll($event)" (onDeSelect)="filtrar($event)">
         </ng-multiselect-dropdown>
       </div>
       <div class="col-sm-6">
         <label>Status</label>
-        <ng-multiselect-dropdown
-           id="ddlStatus2"
-          formControlName="status"
-          [placeholder]="'Selecione'"
-          [data]="listStatus"
-          [(ngModel)]="selectedStatus"
-          [settings]="dropdownSettings"
-          (onSelect)="filtrar($event)"
-          (onSelectAll)="selectAll($event)"
-          (onDeSelect)="filtrar($event)">
+        <ng-multiselect-dropdown id="ddlStatus2" formControlName="status" [placeholder]="'Selecione'"
+          [data]="listStatus" [(ngModel)]="selectedStatus" [settings]="dropdownSettings" (onSelect)="filtrar($event)"
+          (onSelectAll)="selectAll($event)" (onDeSelect)="filtrar($event)">
         </ng-multiselect-dropdown>
       </div>
     </div>
   </form>
   <div *ngIf="itensPropostaCache !== undefined">
     <app-cards [itensPropostaCache]="itensPropostaCache"></app-cards>
-  </div>
-  <div style="width: 100%; overflow: hidden;">
-    <div style="width: 600px; float: left;">
-      <app-grafico-crescimento></app-grafico-crescimento>
-    </div>
-    <div style="margin-left: 620px;">
-      <div *ngIf="itensPropostaCache !== undefined">
-        <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
+    <div style="width: 100%; overflow: hidden;">
+      <div style="width: 600px; float: left;">
+        <app-grafico-crescimento [itensPropostaCache]="itensPropostaCache"></app-grafico-crescimento>
+      </div>
+      <div style="margin-left: 620px;">
+        <div *ngIf="itensPropostaCache !== undefined">
+          <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
+        </div>
       </div>
     </div>
   </div>
+
   <app-grafico-linhas></app-grafico-linhas>
   <app-listagem></app-listagem>
   <!-- <router-outlet></router-outlet> -->

@@ -17,10 +17,14 @@ export class GraficoCrescimentoComponent implements OnInit {
   types: string[] = ['area', 'stackedarea', 'fullstackedarea'];
   
   constructor(private service: GraficoCrescimentoService) {
-    this.areasData = service.getInvestimentoPorArea();
   }
 
   ngOnInit() {
+    this.iniciar();
+  }
+
+  public iniciar(){
+    this.areasData = this.service.getInvestimentoPorArea(this.itensPropostaCache);
   }
 
 }
