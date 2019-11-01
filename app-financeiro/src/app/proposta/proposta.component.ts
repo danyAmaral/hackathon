@@ -63,13 +63,22 @@ export class PropostaComponent implements OnInit {
 
   }
 
-  getTotalLinha(i){
-    let item = (<FormArray>this.formulario.get('dadosFinanceiros'))[i];
-    let total = <number>item.janeiro + <number>item.fevereiro;
-    return total;
+  public getTotalLinha(i){
+      console.log('entreiiiii')
+      console.log(i)
+      let controls = (<FormArray>this.formulario.get('dadosFinanceiros')).controls;
+      let item = controls[i];
+      let total = <number>item.get("janeiro").value + item.get("fevereiro").value + 
+                  <number>item.get("marco").value + item.get("abril").value +
+                  <number>item.get("maio").value + item.get("junho").value +
+                  <number>item.get("julho").value + item.get("agosto").value +
+                  <number>item.get("setembro").value + item.get("outubro").value +
+                  <number>item.get("novembro").value + item.get("dezembro").value;
+      item.get("total").setValue(total);
+    console.log(item)
   } 
 
-  addDadosFinanceirosFormGroup(item?: DadosFinanceiros): void {
+  public addDadosFinanceirosFormGroup(item?: DadosFinanceiros): void {
        (<FormArray>this.formulario.get('dadosFinanceiros')).push(this.formBuilder.group({
          ano: item ? item.ano : 0,
          janeiro: item ? item.janeiro : 0,
@@ -84,6 +93,9 @@ export class PropostaComponent implements OnInit {
          outubro: item ? item.outubro : 0,
          novembro: item ? item.novembro : 0,
          dezembro: item ? item.dezembro : 0,
+         total: item ? (item.janeiro + item.fevereiro + item.marco + item.abril +
+                        item.maio + item.junho + item.julho + item.agosto + item.setembro +
+                        item.outubro + item.novembro + item.dezembro) : 0
        }))
   }
 
@@ -104,16 +116,8 @@ export class PropostaComponent implements OnInit {
   }
 
   public salvarProposta(): void {
-     if (this.formulario.status == "INVALID") {
-      this.formulario.get('titulo').markAllAsTouched();
-      this.formulario.get('descricao').markAllAsTouched();
-      this.formulario.get('area').markAllAsTouched();
-      this.formulario.get('status').markAllAsTouched();
-      this.formulario.get('dataInicio').markAllAsTouched();
-      this.formulario.get('dataTermino').markAllAsTouched();
-    }
-    else {
-      let itemProposta = this.recuperarDadosFormnulario();
+     if (this.formulario.status != "INVALID") {
+           let itemProposta = this.recuperarDadosFormnulario();
       if(this.idProposta)
       {
         this.atualizar(itemProposta)
@@ -126,37 +130,47 @@ export class PropostaComponent implements OnInit {
   }
   
   public recuperarDadosFormnulario(): Proposta{
-    let itemProposta: Proposta = new Proposta();
-    itemProposta.titulo = this.formulario.value.titulo;
-    itemProposta.descricao = this.formulario.value.descricao;
-    itemProposta.area = this.formulario.value.area;
-    itemProposta.status = this.formulario.value.status;
-    itemProposta.dataInicio = this.formulario.value.dataInicio;
-    itemProposta.dataTermino = this.formulario.value.dataTermino;
-    let itensConvertidos = new Array<DadosFinanceiros>();
-    for(let i =0; i < this.formulario.value.dadosFinanceiros.length; i++)
-    {
-      let elemento = this.formulario.value.dadosFinanceiros[i];
-      let item = new DadosFinanceiros();
-      item.ano = <number>elemento.ano;
-      item.janeiro = <number>elemento.janeiro;
-      item.fevereiro = <number>elemento.fevereiro;
-      item.marco = <number>elemento.marco;
-      item.abril = <number>elemento.abril;
-      item.maio = <number>elemento.maio;
-      item.junho = <number>elemento.junho;
-      item.julho = <number>elemento.julho;
-      item.agosto = <number>elemento.agosto;
-      item.setembro = <number>elemento.setembro;
-      item.outubro = <number>elemento.outubro;
-      item.novembro = <number>elemento.novembro;
-      item.dezembro = <number>elemento.dezembro;
-      itensConvertidos.push(item);
+    if (this.formulario.status == "INVALID") {
+      this.formulario.get('titulo').markAllAsTouched();
+      this.formulario.get('descricao').markAllAsTouched();
+      this.formulario.get('area').markAllAsTouched();
+      this.formulario.get('status').markAllAsTouched();
+      this.formulario.get('dataInicio').markAllAsTouched();
+      this.formulario.get('dataTermino').markAllAsTouched();
     }
+    else
+    {
+      let itemProposta: Proposta = new Proposta();
+      itemProposta.titulo = this.formulario.value.titulo;
+      itemProposta.descricao = this.formulario.value.descricao;
+      itemProposta.area = this.formulario.value.area;
+      itemProposta.status = this.formulario.value.status;
+      itemProposta.dataInicio = this.formulario.value.dataInicio;
+      itemProposta.dataTermino = this.formulario.value.dataTermino;
+      let itensConvertidos = new Array<DadosFinanceiros>();
+      for(let i =0; i < this.formulario.value.dadosFinanceiros.length; i++)
+      {
+        let elemento = this.formulario.value.dadosFinanceiros[i];
+        let item = new DadosFinanceiros();
+        item.ano = <number>elemento.ano;
+        item.janeiro = <number>elemento.janeiro;
+        item.fevereiro = <number>elemento.fevereiro;
+        item.marco = <number>elemento.marco;
+        item.abril = <number>elemento.abril;
+        item.maio = <number>elemento.maio;
+        item.junho = <number>elemento.junho;
+        item.julho = <number>elemento.julho;
+        item.agosto = <number>elemento.agosto;
+        item.setembro = <number>elemento.setembro;
+        item.outubro = <number>elemento.outubro;
+        item.novembro = <number>elemento.novembro;
+        item.dezembro = <number>elemento.dezembro;
+        itensConvertidos.push(item);
+      }
 
     itemProposta.dadosFinanceiros = itensConvertidos;
-  
     return itemProposta;
+  }
   }
   public atualizar(itemProposta:Proposta): void{
     itemProposta.id = this.idProposta;

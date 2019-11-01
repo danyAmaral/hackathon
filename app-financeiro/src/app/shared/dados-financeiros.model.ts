@@ -12,4 +12,5 @@ export class DadosFinanceiros{
     public outubro: number;
     public novembro: number;
     public dezembro: number;
+    public total:number;
 }
