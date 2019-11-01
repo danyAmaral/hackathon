@@ -12,14 +12,14 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <p class="card-title">Em Rascunho</p>
-                    <h1 class="card-text h1-card">{{propostasRascunho }}</h1>
+                    <h1 class="card-text h1-card">{{ propostasRascunhoQtd }}</h1>
                   </div>
               </div>
             </div>
             <div class="card-footer">
               <hr>
               <div class="stats">                
-                <p class="valor">R$ VALOR</p>
+                <p class="valor">{{ propostasRascunhoValor | currency:'BRL' }}</p>
               </div>
             </div>
         </div>
@@ -37,14 +37,14 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <p class="card-title">Aprovadas</p>
-                    <h1 class="card-text h1-card">{{propostasAprovadas }}</h1>
+                    <h1 class="card-text h1-card">{{ propostasAprovadasQtd }}</h1>
                   </div>
               </div>
             </div>
             <div class="card-footer">
               <hr>
               <div class="stats">                
-                <p class="valor">R$ VALOR</p>
+                <p class="valor">{{ propostasAprovadasValor | currency:'BRL' }}</p>
               </div>
             </div>
         </div>
@@ -62,14 +62,14 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <p class="card-title">Recusadas</p>
-                    <h1 class="card-text h1-card">{{propostasRecusadas}}</h1>
+                    <h1 class="card-text h1-card">{{ propostasRecusadasQtd }}</h1>
                   </div>
               </div>
             </div>
             <div class="card-footer">
               <hr>
               <div class="stats">                
-                <p class="valor">R$ VALOR</p>
+                <p class="valor">{{ propostasRecusadasValor | currency:'BRL' }}</p>
               </div>
             </div>
         </div>
@@ -87,14 +87,14 @@
                   </div>
                   <div class="col-7 col-md-8">
                     <p class="card-title" style="margin-left: -13%;">Aguardando Aprovação</p>
-                    <h1 class="card-text h1-card">{{propostasAguardandoAprovacao}}</h1>
+                    <h1 class="card-text h1-card">{{ propostasAguardandoAprovacaoQtd }}</h1>
                   </div>
               </div>
             </div>
             <div class="card-footer">
               <hr>
               <div class="stats">                
-                <p class="valor">R$ VALOR</p>
+                <p class="valor">{{ propostasAguardandoAprovacaoValor | currency:'BRL' }}</p>
               </div>
             </div>
         </div>

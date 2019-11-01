@@ -34,3 +34,5 @@ export const MES_MINSETEMBRO = 'Set';
 export const MES_MINOUTUBRO = 'Out';
 export const MES_MINNOVEMBRO = 'Nov';
 export const MES_MINDEZEMBRO = 'Dez';
+
+export const MENSAGEM_SALVO = 'Salvo com sucesso!';

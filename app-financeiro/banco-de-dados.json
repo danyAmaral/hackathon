@@ -181,6 +181,32 @@
         }
       ],
       "id": 7
+    },
+    {
+      "titulo": "proposta do chutes",
+      "descricao": "descricao da proposta do chutes",
+      "area": "Recursos Humanos",
+      "status": "Reprovada",
+      "dataInicio": "2019-10-30T03:00:00.000Z",
+      "dataTermino": "2019-11-01T20:17:43.606Z",
+      "dadosFinanceiros": [
+        {
+          "ano": "2020",
+          "janeiro": 321.23,
+          "fevereiro": 32.32,
+          "marco": 13.21,
+          "abril": 3.21,
+          "maio": 321.32,
+          "junho": 0.12,
+          "julho": 1.32,
+          "agosto": 1.32,
+          "setembro": 13.21,
+          "outubro": 32.56,
+          "novembro": 4.54,
+          "dezembro": 0.4
+        }
+      ],
+      "id": 8
     }
   ]
 }
