@@ -4,6 +4,9 @@ import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@ang
 import { PropostaService } from '../proposta.service';
 import { DadosFinanceiros } from '../shared/dados-financeiros.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import { STATUS_APROVADA, STATUS_REPROVADA, STATUS_AGUARDANDOAPROVACAO, STATUS_RASCUNHO,
+         MES_JANEIRO, MES_FEVEREIRO, MES_MARCO, MES_ABRIL, MES_JUNHO, MES_MAIO, MES_JULHO, MES_AGOSTO,
+        MES_SETEMBRO, MES_OUTUBRO, MES_NOVEMBRO, MES_DEZEMBRO } from '../shared/util.model';
 
 
 @Component({
@@ -14,7 +17,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class PropostaComponent implements OnInit {
   public formulario: FormGroup;
   public idProposta: number;
-  public status = 'Rascunho';
+  public status = STATUS_RASCUNHO;
   constructor(private propostaService: PropostaService,
               private route: ActivatedRoute,
               private router: Router,
@@ -37,7 +40,7 @@ export class PropostaComponent implements OnInit {
               dataTermino: new FormControl(proposta.dataTermino, Validators.required),
               dadosFinanceiros: this.formBuilder.array([])
             });
-            // tslint:disable-next-line: prefer-for-of
+       
             for(let i = 0; i <proposta.dadosFinanceiros.length; i++) {
               const elemento = proposta.dadosFinanceiros[i];
               this.addDadosFinanceirosFormGroup(elemento);
@@ -50,7 +53,7 @@ export class PropostaComponent implements OnInit {
           titulo: new FormControl(null, [Validators.required]),
           descricao: new FormControl(null, [Validators.required]),
           area: new FormControl(null, [Validators.required]),
-          status: new FormControl('Rascunho', Validators.required),
+          status: new FormControl(STATUS_RASCUNHO, Validators.required),
           dataInicio: new FormControl(new Date(), Validators.required),
           dataTermino: new FormControl(new Date(), Validators.required),
           dadosFinanceiros: this.formBuilder.array([])
@@ -64,12 +67,12 @@ export class PropostaComponent implements OnInit {
   public getTotalLinha(i){
       let controls = (<FormArray>this.formulario.get('dadosFinanceiros')).controls;
       let item = controls[i];
-      let total = <number>item.get("janeiro").value + item.get("fevereiro").value +
-                  <number>item.get("marco").value + item.get("abril").value +
-                  <number>item.get("maio").value + item.get("junho").value +
-                  <number>item.get("julho").value + item.get("agosto").value +
-                  <number>item.get("setembro").value + item.get("outubro").value +
-                  <number>item.get("novembro").value + item.get("dezembro").value;
+      let total = <number>item.get(MES_JANEIRO.toLowerCase()).value + item.get(MES_FEVEREIRO.toLowerCase()).value +
+                  <number>item.get(MES_MARCO.toLowerCase()).value + item.get(MES_ABRIL.toLowerCase()).value +
+                  <number>item.get(MES_MAIO.toLowerCase()).value + item.get(MES_JUNHO.toLowerCase()).value +
+                  <number>item.get(MES_JULHO.toLowerCase()).value + item.get(MES_AGOSTO.toLowerCase()).value +
+                  <number>item.get(MES_SETEMBRO.toLowerCase()).value + item.get(MES_OUTUBRO.toLowerCase()).value +
+                  <number>item.get(MES_NOVEMBRO.toLowerCase()).value + item.get(MES_DEZEMBRO.toLowerCase()).value;
       item.get("total").setValue(total);
   }
 
@@ -177,19 +180,19 @@ export class PropostaComponent implements OnInit {
 
   public enviar(){
     let itemProposta = this.recuperarDadosFormnulario();
-    itemProposta = this.alterarStatus("Aguardando Aprovação", itemProposta);
+    itemProposta = this.alterarStatus(STATUS_AGUARDANDOAPROVACAO, itemProposta);
     this.atualizar(itemProposta);
   }
 
   public aprovar(){
     let itemProposta = this.recuperarDadosFormnulario();
-    itemProposta = this.alterarStatus("Aprovada", itemProposta);
+    itemProposta = this.alterarStatus(STATUS_APROVADA, itemProposta);
     this.atualizar(itemProposta);
   }
 
   public reprovar(){
     let itemProposta = this.recuperarDadosFormnulario();
-    itemProposta = this.alterarStatus("Reprovada", itemProposta);
+    itemProposta = this.alterarStatus(STATUS_REPROVADA, itemProposta);
     this.atualizar(itemProposta);
   }
 
