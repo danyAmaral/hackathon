@@ -44,6 +44,7 @@ export class GraficoCrescimentoService {
 
         console.log("******************************")
         console.log(dadosAgrupados)
+        console.log(dadosAgrupados)
        for (const nomeMes of arrayMeses) {
             let obj = new AreaChartValues(); 
             obj.periodo = nomeMes;
@@ -83,62 +84,4 @@ export class GraficoCrescimentoService {
 
         return investimentoAreasData;
     }
-
-    groupBy(key, array) {
-        return array.reduce((objectsByKeyValue, obj) => {
-            const value = obj[key];
-            objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
-            return objectsByKeyValue;
-        });
-    }
-
-    public gerarObjeto(propostas: Array<PropostaDashboard>): AreaChartValues{
-            let objArea = new AreaChartValues();
-            let jan = 0;
-            let fev = 0;
-            let mar =0
-        let abr = 0;
-            let mai = 0;
-            let jun =0;
-            let jul =0
-        let ago = 0;
-            let set = 0;
-            let out =0;
-            let nov = 0;
-            let dez = 0;
-
-            for(let i = 0; i<propostas.length; i++){
-            let item = propostas.length[i];
-            if(item.mes == "Janeiro")
-        jan += <number>item.valor;
-    else if (item.mes == "Fevereiro")
-            fev += <number>item.valor;
-        else if (item.mes == "Março")
-            mar += <number>item.valor;
-        else if (item.mes == "Abril")
-            abr += <number>item.valor;
-        else if (item.mes == "Maio")
-            mai += <number>item.valor;
-        else if (item.mes == "Junho")
-            jun += <number>item.valor;
-        else if (item.mes == "Julho")
-            jul += <number>item.valor;
-        else if (item.mes == "Agosto")
-            ago += <number>item.valor;
-        else if (item.mes == "Setembro")
-            set += <number>item.valor;
-        else if (item.mes == "Outubro")
-            out += <number>item.valor;
-        else if (item.mes == "Novembro")
-            nov += <number>item.valor;
-        else if (item.mes == "Dezembro")
-            dez += <number>item.valor;
-    }
-
-
-
-return objArea;
-    }
-
-
 }

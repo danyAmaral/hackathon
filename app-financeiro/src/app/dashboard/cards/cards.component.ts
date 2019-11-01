@@ -35,12 +35,10 @@ export class CardsComponent implements OnInit {
   }
 
   preencherTotalizadores(itensCache: Array<PropostaDashboard>){
-    console.log('preencherTotalizadores')
     let a= itensCache.filter(x => { return x.status == "Rascunho";});
       this.propostasRascunho = itensCache.filter(x => { return x.status == "Rascunho";}).length;
       this.propostasAprovadas = itensCache.filter(x => { return x.status == "Aprovada";}).length;
       this.propostasRecusadas = itensCache.filter(x => { return x.status == "Reprovada";}).length;
       this.propostasAguardandoAprovacao = itensCache.filter(x => { return x.status == "Aguardando Aprovação";}).length;
-      console.log(this.propostasRascunho)
   }
 }

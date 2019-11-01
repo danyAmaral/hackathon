@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule, enableProdMode, Input } from '@angular/core';
+import { Component, OnInit, NgModule, enableProdMode, Input, SimpleChanges } from '@angular/core';
 import { GraficoCrescimentoService, AreaChartValues } from '../../grafico-crescimento.service';
 
 @Component({
@@ -23,6 +23,10 @@ export class GraficoCrescimentoComponent implements OnInit {
     this.iniciar();
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    this.itensPropostaCache = changes.itensPropostaCache.currentValue;
+    this.iniciar();
+  }
   public iniciar(){
     this.areasData = this.service.getInvestimentoPorArea(this.itensPropostaCache);
   }
