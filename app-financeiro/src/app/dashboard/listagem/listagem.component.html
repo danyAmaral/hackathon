@@ -10,7 +10,9 @@
     <dxi-column dataField="titulo" caption="Título"></dxi-column>
     <dxi-column dataField="area" caption="Área"></dxi-column>
     <dxi-column dataField="status" caption="Situação" [groupIndex]="0"></dxi-column>
-    <dxi-column dataField="valorTotal" caption="Total" format="currency"></dxi-column>
+    <dxi-column dataField="valorTotal" caption="Total">
+      <dxo-format type="currency" [precision]="2"></dxo-format>
+    </dxi-column>
 
     <dxo-search-panel [visible]="true" [placeholder]="'Pesquisar'"></dxo-search-panel>
     <dxo-paging [pageSize]="10"></dxo-paging>
