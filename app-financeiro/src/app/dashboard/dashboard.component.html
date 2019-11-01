@@ -1,14 +1,27 @@
 <div id="todo-conteudo" class="container" style="margin-top: 160px; margin-bottom: 40px;">
   <form [formGroup]="filtro">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-3">
+        <label>Ano</label>
+        <ng-multiselect-dropdown
+          id="ddlAno"
+          formControlName="ano"
+          [placeholder]="'Selecione'"
+          [data]="listAnos"
+          [(ngModel)]="selectedAno"
+          [settings]="ddAnoSettings"
+          (onSelect)="filtrar($event)"
+          (onDeSelect)="selectAll($event)">
+        </ng-multiselect-dropdown>
+      </div>
+      <div class="col-sm-4">
         <label>Área</label>
         <ng-multiselect-dropdown id="ddlArea" formControlName="area" [placeholder]="'Selecione'" [data]="listAreas"
           [(ngModel)]="selectedAreas" [settings]="dropdownSettings" (onSelect)="filtrar($event)"
           (onSelectAll)="selectAll($event)" (onDeSelect)="filtrar($event)">
         </ng-multiselect-dropdown>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-5">
         <label>Status</label>
         <ng-multiselect-dropdown id="ddlStatus2" formControlName="status" [placeholder]="'Selecione'"
           [data]="listStatus" [(ngModel)]="selectedStatus" [settings]="dropdownSettings" (onSelect)="filtrar($event)"

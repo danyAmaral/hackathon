@@ -3,7 +3,8 @@
     id="gridContainer"
     [dataSource]="propostas"
     [allowColumnReordering]="true"
-    [showBorders]="true">
+    [showBorders]="true"
+    [noDataText]="''">
 
     <dxi-column dataField="id" caption="ID" width="60px"></dxi-column>
     <dxi-column dataField="titulo" caption="Título"></dxi-column>
@@ -11,7 +12,7 @@
     <dxi-column dataField="status" caption="Situação" [groupIndex]="0"></dxi-column>
     <dxi-column dataField="valorTotal" caption="Total" format="currency"></dxi-column>
 
-    <dxo-search-panel [visible]="true"></dxo-search-panel>
+    <dxo-search-panel [visible]="true" [placeholder]="'Pesquisar'"></dxo-search-panel>
     <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-group-panel [visible]="true"></dxo-group-panel>
     <dxo-grouping #expand [autoExpandAll]="true"></dxo-grouping>
