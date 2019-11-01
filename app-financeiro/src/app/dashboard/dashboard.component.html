@@ -11,7 +11,8 @@
           [(ngModel)]="selectedAreas"
           [settings]="dropdownSettings"
           (onSelect)="filtrar($event)"
-          (onSelectAll)="filtrar($event)">
+          (onSelectAll)="selectAll($event)"
+          (onDeSelect)="filtrar($event)">
         </ng-multiselect-dropdown>
       </div>
       <div class="col-sm-6">
@@ -24,7 +25,8 @@
           [(ngModel)]="selectedStatus"
           [settings]="dropdownSettings"
           (onSelect)="filtrar($event)"
-          (onSelectAll)="filtrar($event)">
+          (onSelectAll)="selectAll($event)"
+          (onDeSelect)="filtrar($event)">
         </ng-multiselect-dropdown>
       </div>
     </div>
