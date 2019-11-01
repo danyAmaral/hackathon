@@ -18,7 +18,10 @@
                 Area: {{ info.argument }}
             </div>
             <div>
-                Valor: {{ info.value}} %
+                Propostas: {{ info.value }} ({{ info.point.data.qtdPropostas }}%)
+            </div>
+            <div>
+                Valor Total: {{ info.point.data.valorTotal | currency:'BRL' }}
             </div>
         </div>
     </dx-pie-chart>
