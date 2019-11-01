@@ -23,11 +23,9 @@ export class GraficoLinhasComponent {
   }
 
   public iniciar() {
-    console.log(this.itensPropostaCache);
     if (this.itensPropostaCache) {
       this.dataSource = this.service.getDataSource(this.itensPropostaCache);
       this.areas = this.service.getAreas();
-      console.log('DS graf. linhas', this.dataSource)
     }
   }
 }

@@ -29,9 +29,11 @@
         </div>
       </div>
     </div>
+    <div *ngIf="itensPropostaCache !== undefined">
+      <app-grafico-linhas [itensPropostaCache]="itensPropostaCache"></app-grafico-linhas>
+    </div>
   </div>
 
-  <app-grafico-linhas></app-grafico-linhas>
   <app-listagem></app-listagem>
   <!-- <router-outlet></router-outlet> -->
 </div>

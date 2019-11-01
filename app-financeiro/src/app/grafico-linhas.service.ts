@@ -39,6 +39,12 @@ export class GraficoLinhasService {
         let itensRH = itensCache.filter(x => { return x.area == "Recursos Humanos"; });
         let itensTI = itensCache.filter(x => { return x.area == "TI"; });
 
+        console.log(itensAdm);
+        console.log(itensCom);
+        console.log(itensFin);
+        console.log(itensOpe);
+        console.log(itensRH);
+        console.log(itensTI);
 
         const total = itensCache.length;
         const dataSource: DataChart[] = [
@@ -158,7 +164,7 @@ export class GraficoLinhasService {
     calcularValor(itens: PropostaDashboard[], mes: string): number {
         let total: number = 0;
         for (let i = 0; i < itens.length; i++) {
-            let dados = itens[i].dadosFinanceiros.filter(x => x.mes === mes);
+            let dados = itens[i].dadosFinanceiros.filter(x => x.mes.toUpperCase() === mes.toUpperCase());
             if (dados.length > 0){
                 total = total + dados[0].valor;
             }
