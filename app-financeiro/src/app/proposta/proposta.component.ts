@@ -6,7 +6,7 @@ import { DadosFinanceiros } from '../shared/dados-financeiros.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import { STATUS_APROVADA, STATUS_REPROVADA, STATUS_AGUARDANDOAPROVACAO, STATUS_RASCUNHO,
          MES_JANEIRO, MES_FEVEREIRO, MES_MARCO, MES_ABRIL, MES_JUNHO, MES_MAIO, MES_JULHO, MES_AGOSTO,
-        MES_SETEMBRO, MES_OUTUBRO, MES_NOVEMBRO, MES_DEZEMBRO } from '../shared/util.model';
+        MES_SETEMBRO, MES_OUTUBRO, MES_NOVEMBRO, MES_DEZEMBRO, MENSAGEM_SALVO } from '../shared/util.model';
 
 
 @Component({
@@ -174,7 +174,7 @@ export class PropostaComponent implements OnInit {
     itemProposta.id = this.idProposta;
     this.propostaService.atualizarItem(itemProposta)
     .subscribe((resposta) => {
-      alert('salvo com sucesso!')
+      alert(MENSAGEM_SALVO)
     });
   }
 
@@ -207,7 +207,7 @@ export class PropostaComponent implements OnInit {
   public incluir(itemProposta:Proposta): void{
     this.propostaService.salvarItem(itemProposta)
     .subscribe((resposta) => {
-      alert('salvo com sucesso!');
+      alert(MENSAGEM_SALVO);
       this.idProposta = resposta.id;
       this.router.navigate([`/proposta/${this.idProposta}`])
     });
