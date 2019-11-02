@@ -3,6 +3,8 @@ import { PropostaDashboard } from '../shared/proposta.dashboard.model';
 import { PropostaService } from '../proposta.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
+import * as Util from '../shared/util.model';
+import { utils } from 'protractor';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,42 +33,43 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.listAreas = [
-      { item_id: 1, item_text: 'Administrativo'},
-      { item_id: 2, item_text: 'Comercial'},
-      { item_id: 3, item_text: 'Financeiro'},
-      { item_id: 4, item_text: 'Operacional'},
-      { item_id: 5, item_text: 'Recursos Humanos'},
-      { item_id: 6, item_text: 'TI'}
+      { item_id: 1, item_text: Util.AREA_ADMINISTRATIVO},
+      { item_id: 2, item_text: Util.AREA_COMERCIAL},
+      { item_id: 3, item_text: Util.AREA_FINANCEIRO},
+      { item_id: 4, item_text: Util.AREA_OPERACIONAL},
+      { item_id: 5, item_text: Util.AREA_RH},
+      { item_id: 6, item_text: Util.AREA_TI}
     ];
 
     this.selectedAreas = [
-      { item_id: 1, item_text: 'Administrativo'},
-      { item_id: 2, item_text: 'Comercial'},
-      { item_id: 3, item_text: 'Financeiro'},
-      { item_id: 4, item_text: 'Operacional'},
-      { item_id: 5, item_text: 'Recursos Humanos'},
-      { item_id: 6, item_text: 'TI'}
+      { item_id: 1, item_text: Util.AREA_ADMINISTRATIVO},
+      { item_id: 2, item_text: Util.AREA_COMERCIAL},
+      { item_id: 3, item_text: Util.AREA_FINANCEIRO},
+      { item_id: 4, item_text: Util.AREA_OPERACIONAL},
+      { item_id: 5, item_text: Util.AREA_RH},
+      { item_id: 6, item_text: Util.AREA_TI}
     ];
 
     this.listStatus = [
-      { item_id: 1, item_text: 'Aguardando Aprovação' },
-      { item_id: 2, item_text: 'Aprovada' },
-      { item_id: 3, item_text: 'Rascunho' },
-      { item_id: 4, item_text: 'Reprovada' }
+      { item_id: 1, item_text: Util.STATUS_AGUARDANDOAPROVACAO },
+      { item_id: 2, item_text: Util.STATUS_APROVADA },
+      { item_id: 3, item_text: Util.STATUS_RASCUNHO },
+      { item_id: 4, item_text: Util.STATUS_REPROVADA }
     ];
 
     this.selectedStatus = [
-      { item_id: 1, item_text: 'Aguardando Aprovação' },
-      { item_id: 2, item_text: 'Aprovada' },
-      { item_id: 3, item_text: 'Rascunho' },
-      { item_id: 4, item_text: 'Reprovada' }
+      { item_id: 1, item_text: Util.STATUS_AGUARDANDOAPROVACAO },
+      { item_id: 2, item_text: Util.STATUS_APROVADA },
+      { item_id: 3, item_text: Util.STATUS_RASCUNHO },
+      { item_id: 4, item_text: Util.STATUS_REPROVADA }
     ];
 
     this.listAnos = [
-      { item_id: 1, item_text: '2019' },
-      { item_id: 2, item_text: '2020' },
-      { item_id: 3, item_text: '2021' },
-      { item_id: 4, item_text: '2022' }
+      { item_id: 1, item_text: Util.ANO_2019 },
+      { item_id: 2, item_text: Util.ANO_2020 },
+      { item_id: 3, item_text: Util.ANO_2021 },
+      { item_id: 4, item_text: Util.ANO_2022 },
+      { item_id: 5, item_text: Util.ANO_2023 }
     ];
 
     const anoAtualstr = new Date().getFullYear().toString();

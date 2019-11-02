@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { PropostaDashboard } from 'src/app/shared/proposta.dashboard.model';
-import { STATUS_RASCUNHO, STATUS_AGUARDANDOAPROVACAO, STATUS_REPROVADA, STATUS_APROVADA } from 'src/app/shared/util.model';
+import * as Util from 'src/app/shared/util.model';
 
 @Component({
   selector: 'app-cards',
@@ -41,25 +41,29 @@ export class CardsComponent implements OnInit {
   }
 
   preencherTotalizadores(itensCache: Array<PropostaDashboard>) {
-    let propostasRascunho = itensCache.filter(x => { return x.status == STATUS_RASCUNHO; })
-    let propostasAprovadas = itensCache.filter(x => { return x.status == STATUS_APROVADA; })
-    let propostasRecusadas = itensCache.filter(x => { return x.status == STATUS_REPROVADA; })
-    let propostasAguardandoAprovacao = itensCache.filter(x => { return x.status == STATUS_AGUARDANDOAPROVACAO; })
+    const propostasRascunho = itensCache.filter(x => x.status === Util.STATUS_RASCUNHO);
+    const propostasAprovadas = itensCache.filter(x => x.status === Util.STATUS_APROVADA);
+    const propostasRecusadas = itensCache.filter(x => x.status === Util.STATUS_REPROVADA);
+    const propostasAguardandoAprovacao = itensCache.filter(x => x.status === Util.STATUS_AGUARDANDOAPROVACAO);
 
     let valorTotalRascunho: number = 0;
     let valorTotalAprovada: number = 0;
     let valorTotalRecusada: number = 0;
     let valorTotalAguardandoAprovacao: number = 0;
 
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < propostasRascunho.length; i++){
       valorTotalRascunho = valorTotalRascunho + propostasRascunho[i].valorTotal;
     }
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < propostasAprovadas.length; i++){
       valorTotalAprovada = valorTotalAprovada + propostasAprovadas[i].valorTotal;
     }
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < propostasRecusadas.length; i++){
       valorTotalRecusada = valorTotalRecusada + propostasRecusadas[i].valorTotal;
     }
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < propostasAguardandoAprovacao.length; i++){
       valorTotalAguardandoAprovacao = valorTotalAguardandoAprovacao + propostasAguardandoAprovacao[i].valorTotal;
     }

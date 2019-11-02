@@ -12,12 +12,12 @@ export class DataChart {
 @Injectable()
 export class GraficoSetorService {
     public getInvestimentoPorArea(itensCache: Array<PropostaDashboard>): DataChart[] {
-        let itensAdm = itensCache.filter(x => { return x.area == AREA_ADMINISTRATIVO; });
-        let itensCom = itensCache.filter(x => { return x.area == AREA_COMERCIAL; });
-        let itensFin = itensCache.filter(x => { return x.area == AREA_FINANCEIRO; });
-        let itensOpe = itensCache.filter(x => { return x.area == AREA_OPERACIONAL; });
-        let itensRH = itensCache.filter(x => { return x.area == AREA_RH; });
-        let itensTI = itensCache.filter(x => { return x.area == AREA_TI; });
+        const itensAdm = itensCache.filter(x => x.area === AREA_ADMINISTRATIVO);
+        const itensCom = itensCache.filter(x => x.area === AREA_COMERCIAL);
+        const itensFin = itensCache.filter(x => x.area === AREA_FINANCEIRO);
+        const itensOpe = itensCache.filter(x => x.area === AREA_OPERACIONAL);
+        const itensRH = itensCache.filter(x => x.area === AREA_RH);
+        const itensTI = itensCache.filter(x => x.area === AREA_TI);
 
 
         const total = itensCache.length;
@@ -35,6 +35,7 @@ export class GraficoSetorService {
 
     private calcularValorTotal(itens: PropostaDashboard[]): number {
         let total: number = 0;
+        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < itens.length; i++) {
             let item = itens[i];
             total = total + item.valorTotal;
@@ -44,7 +45,7 @@ export class GraficoSetorService {
     }
 
     private calcularPercentual(valor, total) {
-        return Math.round((100 * valor) / total)
+        return Math.round((100 * valor) / total);
     }
 
 

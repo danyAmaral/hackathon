@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { Proposta } from './shared/proposta.model'
 import { DadosFinanceiros } from './shared/dados-financeiros.model'
 import { PropostaDashboard } from './shared/proposta.dashboard.model';
-import {
-    AREA_RH, AREA_TI, AREA_OPERACIONAL, AREA_FINANCEIRO, AREA_COMERCIAL, AREA_ADMINISTRATIVO, MES_JANEIRO,
-    MES_FEVEREIRO, MES_MARCO, MES_ABRIL, MES_MAIO, MES_JUNHO, MES_JULHO, MES_AGOSTO, MES_SETEMBRO, MES_OUTUBRO,
-    MES_NOVEMBRO, MES_DEZEMBRO, STATUS_APROVADA
-} from './shared/util.model';
+import * as Util from './shared/util.model';
 
 export class AreaChartValues {
     administrativo: number = 0;
@@ -22,13 +18,14 @@ export class AreaChartValues {
 export class GraficoCrescimentoService {
     public getInvestimentoPorArea(itensCache: Array<PropostaDashboard>): AreaChartValues[] {
 
-        let dadosFinanceiros = itensCache
-            .filter(x => x.status === STATUS_APROVADA)
+        const dadosFinanceiros = itensCache
+            .filter(x => x.status === Util.STATUS_APROVADA)
             .map(x => x.dadosFinanceiros
                 .map(y => Object.assign({ area: x.area }, y)))
             .reduce((a, b) => a.concat(b));
 
-        let arrayMeses = [MES_JANEIRO, MES_FEVEREIRO, MES_MARCO, MES_ABRIL, MES_MAIO, MES_JUNHO, MES_JULHO, MES_AGOSTO, MES_SETEMBRO, MES_OUTUBRO, MES_NOVEMBRO, MES_DEZEMBRO];
+        // tslint:disable-next-line: max-line-length
+        const arrayMeses = [Util.MES_JANEIRO, Util.MES_FEVEREIRO, Util.MES_MARCO, Util.MES_ABRIL, Util.MES_MAIO, Util.MES_JUNHO, Util.MES_JULHO, Util.MES_AGOSTO, Util.MES_SETEMBRO, Util.MES_OUTUBRO, Util.MES_NOVEMBRO, Util.MES_DEZEMBRO];
 
         const dadosAgrupados = [];
         for (const nomeMes of arrayMeses) {
@@ -36,30 +33,30 @@ export class GraficoCrescimentoService {
                 if (item.mes.toUpperCase() === nomeMes.toUpperCase()) {
                     const itemExistente = dadosAgrupados.filter(x => x.ano === item.ano && x.mes === nomeMes && x.area === item.area);
                     if (itemExistente.length > 0) {
-                        itemExistente[0].valor += <number>item.valor;
+                        itemExistente[0].valor += item.valor as number;
                     } else {
                         dadosAgrupados.push({
                             ano: item.ano,
                             mes: nomeMes,
                             area: item.area,
-                            valor: <number>item.valor
+                            valor: item.valor as number
                         });
                     }
                 }
             }
         }
-        let investimentoAreasData = new Array<AreaChartValues>();
+        const investimentoAreasData = new Array<AreaChartValues>();
 
         for (const nomeMes of arrayMeses) {
-            let obj = new AreaChartValues();
+            const obj = new AreaChartValues();
             obj.periodo = nomeMes;
-            let adm = dadosAgrupados.filter((y) => { return y.area == AREA_ADMINISTRATIVO && y.mes == nomeMes });
-            let com = dadosAgrupados.filter((y) => { return y.area == AREA_COMERCIAL && y.mes == nomeMes });
-            let fin = dadosAgrupados.filter((y) => { return y.area == AREA_FINANCEIRO && y.mes == nomeMes });
-            let ope = dadosAgrupados.filter((y) => { return y.area == AREA_OPERACIONAL && y.mes == nomeMes });
-            let rh = dadosAgrupados.filter((y) => { return y.area == AREA_RH && y.mes == nomeMes });
-            let ti = dadosAgrupados.filter((y) => { return y.area == AREA_TI && y.mes == nomeMes });
-            
+            const adm = dadosAgrupados.filter((y) => y.area === Util.AREA_ADMINISTRATIVO && y.mes === nomeMes);
+            const com = dadosAgrupados.filter((y) => y.area === Util.AREA_COMERCIAL && y.mes === nomeMes);
+            const fin = dadosAgrupados.filter((y) => y.area === Util.AREA_FINANCEIRO && y.mes === nomeMes);
+            const ope = dadosAgrupados.filter((y) => y.area === Util.AREA_OPERACIONAL && y.mes === nomeMes);
+            const rh = dadosAgrupados.filter((y) => y.area === Util.AREA_RH && y.mes === nomeMes);
+            const ti = dadosAgrupados.filter((y) => y.area === Util.AREA_TI && y.mes === nomeMes);
+
             if (adm.length > 0) {
                 obj.administrativo = adm[0].valor ? adm[0].valor : 0;
             }

@@ -35,4 +35,10 @@ export const MES_MINOUTUBRO = 'Out';
 export const MES_MINNOVEMBRO = 'Nov';
 export const MES_MINDEZEMBRO = 'Dez';
 
+export const ANO_2019 = '2019';
+export const ANO_2020 = '2020';
+export const ANO_2021 = '2021';
+export const ANO_2022 = '2022';
+export const ANO_2023 = '2023';
+
 export const MENSAGEM_SALVO = 'Salvo com sucesso!';
