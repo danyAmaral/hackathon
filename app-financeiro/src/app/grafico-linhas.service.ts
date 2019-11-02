@@ -42,123 +42,194 @@ export class GraficoLinhasService {
         const itensTI = itensCache.filter(x => x.area === Util.AREA_TI);
 
         const total = itensCache.length;
-        const dataSource: DataChart[] = [
-            {
-                mesAno: Util.MES_MINJANEIRO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_JANEIRO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_JANEIRO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_JANEIRO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_JANEIRO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_JANEIRO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_JANEIRO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINFEVEREIRO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_FEVEREIRO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_FEVEREIRO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_FEVEREIRO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_FEVEREIRO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_FEVEREIRO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_FEVEREIRO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINMARCO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_MARCO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_MARCO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_MARCO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_MARCO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_MARCO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_MARCO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINABRIL + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_ABRIL.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_ABRIL.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_ABRIL.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_ABRIL.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_ABRIL.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_ABRIL.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINMAIO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_MAIO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_MAIO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_MAIO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_MAIO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_MAIO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_MAIO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINJUNHO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_JUNHO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm,  Util.MES_JUNHO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin,  Util.MES_JUNHO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe,  Util.MES_JUNHO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH,  Util.MES_JUNHO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI,  Util.MES_JUNHO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINJULHO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_JULHO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_JULHO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_JULHO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_JULHO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_JULHO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_JULHO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINAGOSTO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_AGOSTO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_AGOSTO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_AGOSTO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_AGOSTO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_AGOSTO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_AGOSTO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINSETEMBRO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_SETEMBRO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_SETEMBRO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_SETEMBRO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_SETEMBRO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_SETEMBRO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_SETEMBRO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_OUTUBRO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_OUTUBRO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_OUTUBRO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_OUTUBRO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_OUTUBRO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_OUTUBRO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_OUTUBRO.toLowerCase()),
-            },
-            {
-                mesAno: Util.MES_MINNOVEMBRO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_NOVEMBRO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_NOVEMBRO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_NOVEMBRO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_NOVEMBRO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_NOVEMBRO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_NOVEMBRO.toLowerCase()),
-            }
-            ,
-            {
-                mesAno: Util.MES_MINDEZEMBRO + '/' + anoCorrente,
-                valorComercial: this.calcularValor(itensCom, Util.MES_DEZEMBRO.toLowerCase()),
-                valorAdministrativo: this.calcularValor(itensAdm, Util.MES_DEZEMBRO.toLowerCase()),
-                valorFinanceiro: this.calcularValor(itensFin, Util.MES_DEZEMBRO.toLowerCase()),
-                valorOperacional: this.calcularValor(itensOpe, Util.MES_DEZEMBRO.toLowerCase()),
-                valorRH: this.calcularValor(itensRH, Util.MES_DEZEMBRO.toLowerCase()),
-                valorTI: this.calcularValor(itensTI, Util.MES_DEZEMBRO.toLowerCase()),
-            }
-        ];
+        const dataSource: Array<DataChart> = new Array<DataChart>();
+        
+        let jan = new DataChart();
+        jan.mesAno = Util.MES_MINJANEIRO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            jan.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_JANEIRO.toLowerCase());
+        if(itensCom.length > 0)
+            jan.valorComercial =  this.calcularValor(itensCom, Util.MES_JANEIRO.toLowerCase());
+        if(itensFin.length > 0)
+            jan.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_JANEIRO.toLowerCase());
+        if(itensOpe.length > 0)
+            jan.valorOperacional =  this.calcularValor(itensOpe, Util.MES_JANEIRO.toLowerCase());
+        if(itensRH.length > 0)
+            jan.valorRH =  this.calcularValor(itensRH, Util.MES_JANEIRO.toLowerCase());
+        if(itensTI.length > 0)
+            jan.valorTI =  this.calcularValor(itensTI, Util.MES_JANEIRO.toLowerCase());
+
+        let fev = new DataChart();
+        fev.mesAno = Util.MES_MINFEVEREIRO+ '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            fev.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_FEVEREIRO.toLowerCase());
+        if(itensCom.length > 0)
+            fev.valorComercial =  this.calcularValor(itensCom, Util.MES_FEVEREIRO.toLowerCase());
+        if(itensFin.length > 0)
+            fev.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_FEVEREIRO.toLowerCase());
+        if(itensOpe.length > 0)
+            fev.valorOperacional =  this.calcularValor(itensOpe, Util.MES_FEVEREIRO.toLowerCase());
+        if(itensRH.length > 0)
+            fev.valorRH =  this.calcularValor(itensRH, Util.MES_FEVEREIRO.toLowerCase());
+        if(itensTI.length > 0)
+            fev.valorTI =  this.calcularValor(itensTI, Util.MES_FEVEREIRO.toLowerCase());
+        
+        let mar = new DataChart();
+        mar.mesAno = Util.MES_MINMARCO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            mar.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_MARCO.toLowerCase());
+        if(itensCom.length > 0)
+            mar.valorComercial =  this.calcularValor(itensCom, Util.MES_MARCO.toLowerCase());
+        if(itensFin.length > 0)
+            mar.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_MARCO.toLowerCase());
+        if(itensOpe.length > 0)
+            mar.valorOperacional =  this.calcularValor(itensOpe, Util.MES_MARCO.toLowerCase());
+        if(itensRH.length > 0)
+            mar.valorRH =  this.calcularValor(itensRH, Util.MES_MARCO.toLowerCase());
+        if(itensTI.length > 0)
+            mar.valorTI =  this.calcularValor(itensTI, Util.MES_MARCO.toLowerCase());
+
+        let abr = new DataChart();
+        abr.mesAno = Util.MES_MINABRIL + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            abr.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_ABRIL.toLowerCase());
+        if(itensCom.length > 0)
+            abr.valorComercial =  this.calcularValor(itensCom, Util.MES_ABRIL.toLowerCase());
+        if(itensFin.length > 0)
+            abr.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_ABRIL.toLowerCase());
+        if(itensOpe.length > 0)
+            abr.valorOperacional =  this.calcularValor(itensOpe, Util.MES_ABRIL.toLowerCase());
+        if(itensRH.length > 0)
+            abr.valorRH =  this.calcularValor(itensRH, Util.MES_ABRIL.toLowerCase());
+        if(itensTI.length > 0)
+            abr.valorTI =  this.calcularValor(itensTI, Util.MES_ABRIL.toLowerCase());
+
+        let mai = new DataChart();
+        mai.mesAno = Util.MES_MINMAIO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            mai.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_MAIO.toLowerCase());
+        if(itensCom.length > 0)
+            mai.valorComercial =  this.calcularValor(itensCom, Util.MES_MAIO.toLowerCase());
+        if(itensFin.length > 0)
+            mai.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_MAIO.toLowerCase());
+        if(itensOpe.length > 0)
+            mai.valorOperacional =  this.calcularValor(itensOpe, Util.MES_MAIO.toLowerCase());
+        if(itensRH.length > 0)
+            mai.valorRH =  this.calcularValor(itensRH, Util.MES_MAIO.toLowerCase());
+        if(itensTI.length > 0)
+            mai.valorTI =  this.calcularValor(itensTI, Util.MES_MAIO.toLowerCase());
+
+        let jun = new DataChart();
+        jun.mesAno = Util.MES_MINJUNHO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            jun.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_JUNHO.toLowerCase());
+        if(itensCom.length > 0)
+            jun.valorComercial =  this.calcularValor(itensCom, Util.MES_JUNHO.toLowerCase());
+        if(itensFin.length > 0)
+            jun.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_JUNHO.toLowerCase());
+        if(itensOpe.length > 0)
+            jun.valorOperacional =  this.calcularValor(itensOpe, Util.MES_JUNHO.toLowerCase());
+        if(itensRH.length > 0)
+            jun.valorRH =  this.calcularValor(itensRH, Util.MES_JUNHO.toLowerCase());
+        if(itensTI.length > 0)
+            jun.valorTI =  this.calcularValor(itensTI, Util.MES_JUNHO.toLowerCase());
+
+        let jul = new DataChart();
+        jul.mesAno = Util.MES_MINJULHO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            jul.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_JULHO.toLowerCase());
+        if(itensCom.length > 0)
+            jul.valorComercial =  this.calcularValor(itensCom, Util.MES_JULHO.toLowerCase());
+        if(itensFin.length > 0)
+            jul.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_JULHO.toLowerCase());
+        if(itensOpe.length > 0)
+            jul.valorOperacional =  this.calcularValor(itensOpe, Util.MES_JULHO.toLowerCase());
+        if(itensRH.length > 0)
+            jul.valorRH =  this.calcularValor(itensRH, Util.MES_JULHO.toLowerCase());
+        if(itensTI.length > 0)
+            jul.valorTI =  this.calcularValor(itensTI, Util.MES_JULHO.toLowerCase());
+
+        let ago = new DataChart();
+        ago.mesAno = Util.MES_MINAGOSTO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            ago.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_AGOSTO.toLowerCase());
+        if(itensCom.length > 0)
+            ago.valorComercial =  this.calcularValor(itensCom, Util.MES_AGOSTO.toLowerCase());
+        if(itensFin.length > 0)
+            ago.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_AGOSTO.toLowerCase());
+        if(itensOpe.length > 0)
+            ago.valorOperacional =  this.calcularValor(itensOpe, Util.MES_AGOSTO.toLowerCase());
+        if(itensRH.length > 0)
+            ago.valorRH =  this.calcularValor(itensRH, Util.MES_AGOSTO.toLowerCase());
+        if(itensTI.length > 0)
+            ago.valorTI =  this.calcularValor(itensTI, Util.MES_AGOSTO.toLowerCase());
+
+        let set = new DataChart();
+        set.mesAno = Util.MES_MINSETEMBRO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            set.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_SETEMBRO.toLowerCase());
+        if(itensCom.length > 0)
+            set.valorComercial =  this.calcularValor(itensCom, Util.MES_SETEMBRO.toLowerCase());
+        if(itensFin.length > 0)
+            set.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_SETEMBRO.toLowerCase());
+        if(itensOpe.length > 0)
+            set.valorOperacional =  this.calcularValor(itensOpe, Util.MES_SETEMBRO.toLowerCase());
+        if(itensRH.length > 0)
+            set.valorRH =  this.calcularValor(itensRH, Util.MES_SETEMBRO.toLowerCase());
+        if(itensTI.length > 0)
+            set.valorTI =  this.calcularValor(itensTI, Util.MES_SETEMBRO.toLowerCase());
+
+        let out = new DataChart();
+        out.mesAno = Util.MES_MINOUTUBRO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            out.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_OUTUBRO.toLowerCase());
+        if(itensCom.length > 0)
+            out.valorComercial =  this.calcularValor(itensCom, Util.MES_OUTUBRO.toLowerCase());
+        if(itensFin.length > 0)
+            out.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_OUTUBRO.toLowerCase());
+        if(itensOpe.length > 0)
+            out.valorOperacional =  this.calcularValor(itensOpe, Util.MES_OUTUBRO.toLowerCase());
+        if(itensRH.length > 0)
+            out.valorRH =  this.calcularValor(itensRH, Util.MES_OUTUBRO.toLowerCase());
+        if(itensTI.length > 0)
+            out.valorTI =  this.calcularValor(itensTI, Util.MES_OUTUBRO.toLowerCase());
+
+        let nov = new DataChart();
+        nov.mesAno = Util.MES_MINNOVEMBRO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            nov.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_NOVEMBRO.toLowerCase());
+        if(itensCom.length > 0)
+            nov.valorComercial =  this.calcularValor(itensCom, Util.MES_NOVEMBRO.toLowerCase());
+        if(itensFin.length > 0)
+            nov.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_NOVEMBRO.toLowerCase());
+        if(itensOpe.length > 0)
+            nov.valorOperacional =  this.calcularValor(itensOpe, Util.MES_NOVEMBRO.toLowerCase());
+        if(itensRH.length > 0)
+            nov.valorRH =  this.calcularValor(itensRH, Util.MES_NOVEMBRO.toLowerCase());
+        if(itensTI.length > 0)
+            nov.valorTI =  this.calcularValor(itensTI, Util.MES_NOVEMBRO.toLowerCase());
+        
+        let dez = new DataChart();
+        dez.mesAno = Util.MES_MINDEZEMBRO + '/' + anoCorrente;
+        if(itensAdm.length > 0)
+            dez.valorAdministrativo =  this.calcularValor(itensAdm, Util.MES_DEZEMBRO.toLowerCase());
+        if(itensCom.length > 0)
+            dez.valorComercial =  this.calcularValor(itensCom, Util.MES_DEZEMBRO.toLowerCase());
+        if(itensFin.length > 0)
+            dez.valorFinanceiro =  this.calcularValor(itensFin, Util.MES_DEZEMBRO.toLowerCase());
+        if(itensOpe.length > 0)
+            dez.valorOperacional =  this.calcularValor(itensOpe, Util.MES_DEZEMBRO.toLowerCase());
+        if(itensRH.length > 0)
+            dez.valorRH =  this.calcularValor(itensRH, Util.MES_DEZEMBRO.toLowerCase());
+        if(itensTI.length > 0)
+            dez.valorTI =  this.calcularValor(itensTI, Util.MES_DEZEMBRO.toLowerCase());
+
+        dataSource.push(jan,fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez);
         return dataSource;
     }
 
-    calcularValor(itens: PropostaDashboard[], mes: string): number {
+    public calcularValor(itens: PropostaDashboard[], mes: string): number {
         let total: number = 0;
-        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < itens.length; i++) {
             const dados = itens[i].dadosFinanceiros.filter(x => x.mes.toUpperCase() === mes.toUpperCase());
             if (dados.length > 0){
@@ -169,7 +240,7 @@ export class GraficoLinhasService {
         return total;
     }
 
-    getAreas(): Area[] {
+    public getAreas(): Area[] {
         return areas;
     }
 }

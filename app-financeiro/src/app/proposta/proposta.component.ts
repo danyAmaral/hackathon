@@ -67,12 +67,12 @@ export class PropostaComponent implements OnInit {
   public getTotalLinha(i){
       let controls = (<FormArray>this.formulario.get('dadosFinanceiros')).controls;
       let item = controls[i];
-      let total = <number>item.get(MES_JANEIRO.toLowerCase()).value + item.get(MES_FEVEREIRO.toLowerCase()).value +
-                  <number>item.get(MES_MARCO.toLowerCase()).value + item.get(MES_ABRIL.toLowerCase()).value +
-                  <number>item.get(MES_MAIO.toLowerCase()).value + item.get(MES_JUNHO.toLowerCase()).value +
-                  <number>item.get(MES_JULHO.toLowerCase()).value + item.get(MES_AGOSTO.toLowerCase()).value +
-                  <number>item.get(MES_SETEMBRO.toLowerCase()).value + item.get(MES_OUTUBRO.toLowerCase()).value +
-                  <number>item.get(MES_NOVEMBRO.toLowerCase()).value + item.get(MES_DEZEMBRO.toLowerCase()).value;
+      let total = <number>item.get("janeiro").value + item.get("fevereiro").value +
+                  <number>item.get("marco").value + item.get("abril").value +
+                  <number>item.get("maio").value + item.get("junho").value +
+                  <number>item.get("julho").value + item.get("agosto").value +
+                  <number>item.get("setembro").value + item.get("outubro").value +
+                  <number>item.get("novembro").value + item.get("dezembro").value;
       item.get("total").setValue(total);
   }
 

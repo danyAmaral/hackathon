@@ -26,8 +26,12 @@ export class GraficoCrescimentoComponent implements OnInit {
     this.itensPropostaCache = changes.itensPropostaCache.currentValue;
     this.iniciar();
   }
+
   public iniciar(){
-    this.areasData = this.service.getInvestimentoPorArea(this.itensPropostaCache);
+    if(this.itensPropostaCache)
+      this.areasData = this.service.getInvestimentoPorArea(this.itensPropostaCache);
+    else
+      this.areasData = new AreaChartValues[1];
   }
 
 }

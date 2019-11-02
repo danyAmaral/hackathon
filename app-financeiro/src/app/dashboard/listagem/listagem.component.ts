@@ -24,7 +24,7 @@ export class ListagemComponent {
 
   public iniciar() {
     if (this.itensPropostaCache) {
-      this.propostas = this.itensPropostaCache;
+        this.propostas = this.itensPropostaCache;
     }
   }
 

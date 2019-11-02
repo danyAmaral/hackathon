@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   public selectedAno = [];
   public dropdownSettings: IDropdownSettings = {};
   public ddAnoSettings: IDropdownSettings = {};
-
+  public anoAtualstr = new Date().getFullYear().toString();
   public propostas: Array<PropostaDashboard>;
   public itensPropostaCache: Array<PropostaDashboard>;
   public filtro: FormGroup = new FormGroup({
@@ -72,8 +72,8 @@ export class DashboardComponent implements OnInit {
       { item_id: 5, item_text: Util.ANO_2023 }
     ];
 
-    const anoAtualstr = new Date().getFullYear().toString();
-    const anoAtual = this.listAnos.find(a => a.item_text === anoAtualstr);
+  
+    const anoAtual = this.listAnos.find(a => a.item_text === this.anoAtualstr);
     this.selectedAno = [
       anoAtual
     ];
@@ -98,22 +98,39 @@ export class DashboardComponent implements OnInit {
       this.propostas = itens;
       this.filtrar();
     });
-
   }
+
+  public exitemPropostas(): boolean{
+      let existe = false;
+      existe = (this.itensPropostaCache && this.itensPropostaCache.length > 0) ? true : false;
+      return existe;
+  }
+
+  public exitemPropostasAprovadas(): boolean{
+    let existe = false;
+    if(this.exitemPropostas()){
+      let itensAprovados = this.itensPropostaCache.filter(x => { return x.status === Util.STATUS_APROVADA}); 
+         existe = (itensAprovados && itensAprovados.length > 0) ? true : false;
+    }
+    return existe;
+}
 
   public filtrar(): void {
     const filtroArea = this.filtro.value.area;
     const filtroStatus = this.filtro.value.status;
-    const filtroAno = this.filtro.value.ano[0];
+    let filtroAno = this.filtro.value.ano[0];
     const arrayArea = [];
     const arrayStatus = [];
 
-    // tslint:disable-next-line: prefer-for-of
+    if(!filtroAno)
+        filtroAno = this.anoAtualstr;
+    else
+        filtroAno = filtroAno.item_text;
+
     for (let i = 0; i < filtroArea.length; i++) {
       arrayArea.push(filtroArea[i].item_text);
     }
 
-    // tslint:disable-next-line: prefer-for-of
     for (let k = 0; k < filtroStatus.length; k++) {
       arrayStatus.push(filtroStatus[k].item_text);
     }
@@ -121,10 +138,14 @@ export class DashboardComponent implements OnInit {
     if ((arrayStatus.length === 0) && (arrayArea.length === 0)) {
       this.selectAll();
     } else {
+      
+      const nenhumStatusSelecionado = arrayStatus.length === 0;
+      const nenhumaAreaSelecionada = arrayArea.length === 0;
+
       this.itensPropostaCache = this.propostas.filter((item) => {
-        return ((arrayArea.indexOf(item.area) !== -1) &&
-          (arrayStatus.indexOf(item.status) !== -1) &&
-          (item.dadosFinanceiros.find(d => d.ano.toString() === filtroAno.item_text) !== undefined));
+        return ((arrayArea.indexOf(item.area) !== -1 || nenhumaAreaSelecionada) &&
+          (arrayStatus.indexOf(item.status) !== -1 || nenhumStatusSelecionado) &&
+          (item.dadosFinanceiros.find(d => d.ano.toString() === filtroAno) !== undefined));
       });
     }
   }

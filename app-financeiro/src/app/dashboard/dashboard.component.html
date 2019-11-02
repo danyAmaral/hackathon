@@ -3,27 +3,21 @@
     <div class="row">
       <div class="col-sm-3">
         <label>Ano</label>
-        <ng-multiselect-dropdown
-          id="ddlAno"
-          formControlName="ano"
-          [placeholder]="'Selecione'"
-          [data]="listAnos"
-          [(ngModel)]="selectedAno"
-          [settings]="ddAnoSettings"
-          (onSelect)="filtrar($event)"
-          (onDeSelect)="selectAll($event)">
+        <ng-multiselect-dropdown id="ddlAno" formControlName="ano" [placeholder]="'Ano Atual'" [data]="listAnos"
+          [(ngModel)]="selectedAno" [settings]="ddAnoSettings" (onSelect)="filtrar($event)"
+          (onDeSelect)="filtrar($event)">
         </ng-multiselect-dropdown>
       </div>
       <div class="col-sm-4">
         <label>Área</label>
-        <ng-multiselect-dropdown id="ddlArea" formControlName="area" [placeholder]="'Selecione'" [data]="listAreas"
+        <ng-multiselect-dropdown id="ddlArea" formControlName="area" [placeholder]="'Todas'" [data]="listAreas"
           [(ngModel)]="selectedAreas" [settings]="dropdownSettings" (onSelect)="filtrar($event)"
           (onSelectAll)="selectAll($event)" (onDeSelect)="filtrar($event)">
         </ng-multiselect-dropdown>
       </div>
       <div class="col-sm-5">
         <label>Status</label>
-        <ng-multiselect-dropdown id="ddlStatus2" formControlName="status" [placeholder]="'Selecione'"
+        <ng-multiselect-dropdown id="ddlStatus2" formControlName="status" [placeholder]="'Todos'"
           [data]="listStatus" [(ngModel)]="selectedStatus" [settings]="dropdownSettings" (onSelect)="filtrar($event)"
           (onSelectAll)="selectAll($event)" (onDeSelect)="filtrar($event)">
         </ng-multiselect-dropdown>
@@ -32,16 +26,29 @@
   </form>
   <div *ngIf="itensPropostaCache !== undefined">
     <app-cards [itensPropostaCache]="itensPropostaCache"></app-cards>
-    <div style="width: 100%; overflow: hidden;">
-      <div style="width: 600px; float: left;">
-        <app-grafico-crescimento [itensPropostaCache]="itensPropostaCache"></app-grafico-crescimento>
+    <div *ngIf="exitemPropostas(); else semPropostas">
+      <div style="width: 100%; overflow: hidden;">
+        <div style="width: 600px; float: left;">
+          <div *ngIf="exitemPropostasAprovadas(); else semPropostasAprovadas">
+              <app-grafico-crescimento [itensPropostaCache]="itensPropostaCache"></app-grafico-crescimento>
+          </div>
+        </div>
+        <div style="margin-left: 620px;">
+          <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
+        </div>
       </div>
-      <div style="margin-left: 620px;">
-        <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
-      </div>
+      <app-grafico-linhas [itensPropostaCache]="itensPropostaCache"></app-grafico-linhas>
+      <app-listagem [itensPropostaCache]="itensPropostaCache"></app-listagem>
     </div>
-    <app-grafico-linhas [itensPropostaCache]="itensPropostaCache"></app-grafico-linhas>
-    <app-listagem [itensPropostaCache]="itensPropostaCache"></app-listagem>
   </div>
-  <!-- <router-outlet></router-outlet> -->
+  <ng-template #semPropostas>
+    <div class="form-group">
+      <span> Nenhuma proposta encontrada com os filtros selecionados. </span>
+    </div>
+  </ng-template>
+  <ng-template #semPropostasAprovadas>
+    <div class="form-group">
+      <span> Nenhuma proposta encontrada com os filtros selecionados. </span>
+    </div>
+  </ng-template>
 </div>

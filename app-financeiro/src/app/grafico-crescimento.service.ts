@@ -24,8 +24,9 @@ export class GraficoCrescimentoService {
                 .map(y => Object.assign({ area: x.area }, y)))
             .reduce((a, b) => a.concat(b));
 
-        // tslint:disable-next-line: max-line-length
-        const arrayMeses = [Util.MES_JANEIRO, Util.MES_FEVEREIRO, Util.MES_MARCO, Util.MES_ABRIL, Util.MES_MAIO, Util.MES_JUNHO, Util.MES_JULHO, Util.MES_AGOSTO, Util.MES_SETEMBRO, Util.MES_OUTUBRO, Util.MES_NOVEMBRO, Util.MES_DEZEMBRO];
+        const arrayMeses = [Util.MES_JANEIRO, Util.MES_FEVEREIRO, Util.MES_MARCO, Util.MES_ABRIL,
+                            Util.MES_MAIO, Util.MES_JUNHO, Util.MES_JULHO, Util.MES_AGOSTO, Util.MES_SETEMBRO, 
+                            Util.MES_OUTUBRO, Util.MES_NOVEMBRO, Util.MES_DEZEMBRO];
 
         const dadosAgrupados = [];
         for (const nomeMes of arrayMeses) {
