@@ -21,21 +21,63 @@ export class GraficoSetorService {
 
 
         const total = itensCache.length;
-        const dataSource: DataChart[] = [
-            { setor: AREA_ADMINISTRATIVO, val: itensAdm.length, valorTotal: this.calcularValorTotal(itensAdm), qtdPropostas: this.calcularPercentual(itensAdm.length, total)},
-            { setor: AREA_COMERCIAL, val: itensCom.length, valorTotal: this.calcularValorTotal(itensCom), qtdPropostas: this.calcularPercentual(itensCom.length, total)},
-            { setor: AREA_FINANCEIRO, val: itensFin.length, valorTotal: this.calcularValorTotal(itensFin), qtdPropostas: this.calcularPercentual(itensFin.length, total)},
-            { setor: AREA_OPERACIONAL, val: itensOpe.length, valorTotal: this.calcularValorTotal(itensOpe), qtdPropostas: this.calcularPercentual(itensOpe.length, total)},
-            { setor: AREA_RH, val: itensRH.length, valorTotal: this.calcularValorTotal(itensRH), qtdPropostas: this.calcularPercentual(itensRH.length, total)},
-            { setor: AREA_TI, val: itensTI.length, valorTotal: this.calcularValorTotal(itensTI), qtdPropostas: this.calcularPercentual(itensTI.length, total)}
-        ];
-        return dataSource;
+        const dataSource: Array<DataChart> = new Array<DataChart>();
+        if(itensAdm.length > 0){
+            let adm = new DataChart();
+            adm.setor = AREA_ADMINISTRATIVO;
+            adm.val =  itensAdm.length;
+            adm.valorTotal = this.calcularValorTotal(itensAdm);
+            adm.qtdPropostas = this.calcularPercentual(itensAdm.length, total);
+            dataSource.push(adm);
+        }
+        if(itensCom.length > 0){
+            let com = new DataChart();
+            com.setor = AREA_COMERCIAL;
+            com.val =  itensCom.length;
+            com.valorTotal = this.calcularValorTotal(itensCom);
+            com.qtdPropostas = this.calcularPercentual(itensCom.length, total);
+            dataSource.push(com);
+        }
+        
+        if(itensFin.length > 0){
+            let fin = new DataChart();
+            fin.setor = AREA_FINANCEIRO;
+            fin.val =  itensFin.length;
+            fin.valorTotal = this.calcularValorTotal(itensFin);
+            fin.qtdPropostas = this.calcularPercentual(itensFin.length, total);
+            dataSource.push(fin);
+        }
+        if(itensOpe.length > 0){
+            let ope = new DataChart();
+            ope.setor = AREA_OPERACIONAL;
+            ope.val =  itensOpe.length;
+            ope.valorTotal = this.calcularValorTotal(itensOpe);
+            ope.qtdPropostas = this.calcularPercentual(itensOpe.length,total);
+            dataSource.push(ope);
+        }
+     
+        if(itensRH.length > 0){
+            let rh = new DataChart();
+            rh.setor = AREA_RH;
+            rh.val =  itensRH.length;
+            rh.valorTotal = this.calcularValorTotal(itensRH);
+            rh.qtdPropostas = this.calcularPercentual(itensRH.length, total);
+            dataSource.push(rh);
+        }
 
+        if(itensTI.length > 0){
+            let ti = new DataChart();
+            ti.setor = AREA_TI;
+            ti.val =  itensTI.length;
+            ti.valorTotal = this.calcularValorTotal(itensTI);
+            ti.qtdPropostas = this.calcularPercentual(itensTI.length, total);
+            dataSource.push(ti);
+        }
+        return dataSource;
     }
 
     private calcularValorTotal(itens: PropostaDashboard[]): number {
         let total: number = 0;
-        // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < itens.length; i++) {
             let item = itens[i];
             total = total + item.valorTotal;
@@ -47,6 +89,4 @@ export class GraficoSetorService {
     private calcularPercentual(valor, total) {
         return Math.round((100 * valor) / total);
     }
-
-
 }

@@ -96,7 +96,7 @@
               <th>
                 <img
                   src="../../../assets/add.png"
-                  (click)="addNovaLinha($event)"
+                  (click)="addNovaLinha()"
                   title="Adicionar"
                   style="cursor:pointer;"
                 />
@@ -266,7 +266,7 @@
           *ngIf="idProposta"
           type="button"
           class="btn btn-success"
-          (click)="enviar($event)"
+          (click)="enviar()"
           style="margin-left: 10px;"
         >
           Enviar
@@ -277,7 +277,7 @@
           type="button"
           class="btn btn-success"
           style="margin-left: 10px;"
-          (click)="aprovar($event)"
+          (click)="aprovar()"
         >
           Aprovar
         </button>
@@ -285,7 +285,7 @@
           type="button"
           class="btn btn-danger"
           style="margin-left: 10px;"
-          (click)="reprovar($event)"
+          (click)="reprovar()"
         >
           Reprovar
         </button>
@@ -297,7 +297,7 @@
       <span> Nenhum dado financeiro cadastrado. </span>
       <img
         src="../../../assets/add.png"
-        (click)="addNovaLinha($event)"
+        (click)="addNovaLinha()"
         title="Adicionar"
         style="cursor:pointer;"
       />

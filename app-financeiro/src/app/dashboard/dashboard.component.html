@@ -4,22 +4,22 @@
       <div class="col-sm-3">
         <label>Ano</label>
         <ng-multiselect-dropdown id="ddlAno" formControlName="ano" [placeholder]="'Ano Atual'" [data]="listAnos"
-          [(ngModel)]="selectedAno" [settings]="ddAnoSettings" (onSelect)="filtrar($event)"
-          (onDeSelect)="filtrar($event)">
+          [(ngModel)]="selectedAno" [settings]="ddAnoSettings" (onSelect)="filtrar()"
+          (onDeSelect)="filtrar()">
         </ng-multiselect-dropdown>
       </div>
       <div class="col-sm-4">
         <label>Área</label>
         <ng-multiselect-dropdown id="ddlArea" formControlName="area" [placeholder]="'Todas'" [data]="listAreas"
-          [(ngModel)]="selectedAreas" [settings]="dropdownSettings" (onSelect)="filtrar($event)"
-          (onSelectAll)="selectAll($event)" (onDeSelect)="filtrar($event)">
+          [(ngModel)]="selectedAreas" [settings]="dropdownSettings" (onSelect)="filtrar()"
+          (onSelectAll)="selectAll()" (onDeSelect)="filtrar()">
         </ng-multiselect-dropdown>
       </div>
       <div class="col-sm-5">
         <label>Status</label>
         <ng-multiselect-dropdown id="ddlStatus2" formControlName="status" [placeholder]="'Todos'"
-          [data]="listStatus" [(ngModel)]="selectedStatus" [settings]="dropdownSettings" (onSelect)="filtrar($event)"
-          (onSelectAll)="selectAll($event)" (onDeSelect)="filtrar($event)">
+          [data]="listStatus" [(ngModel)]="selectedStatus" [settings]="dropdownSettings" (onSelect)="filtrar()"
+          (onSelectAll)="selectAll()" (onDeSelect)="filtrar()">
         </ng-multiselect-dropdown>
       </div>
     </div>
@@ -30,7 +30,7 @@
       <div style="width: 100%; overflow: hidden;">
         <div style="width: 600px; float: left;">
           <div *ngIf="exitemPropostasAprovadas(); else semPropostasAprovadas">
-              <app-grafico-crescimento [itensPropostaCache]="itensPropostaCache"></app-grafico-crescimento>
+             <app-grafico-crescimento [itensPropostaCache]="itensPropostaCache"></app-grafico-crescimento>  
           </div>
         </div>
         <div style="margin-left: 620px;">
