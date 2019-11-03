@@ -10,6 +10,7 @@ import * as Util from 'src/app/shared/util.model';
 export class CardsComponent implements OnInit {
 
   @Input() public itensPropostaCache;
+  @Input() public anoSeleciono;
 
   public propostasRascunhoQtd: number = 0;
   public propostasAprovadasQtd: number = 0;
@@ -41,6 +42,7 @@ export class CardsComponent implements OnInit {
   }
 
   preencherTotalizadores(itensCache: Array<PropostaDashboard>) {
+
     const propostasRascunho = itensCache.filter(x => x.status === Util.STATUS_RASCUNHO);
     const propostasAprovadas = itensCache.filter(x => x.status === Util.STATUS_APROVADA);
     const propostasRecusadas = itensCache.filter(x => x.status === Util.STATUS_REPROVADA);
@@ -51,21 +53,47 @@ export class CardsComponent implements OnInit {
     let valorTotalRecusada: number = 0;
     let valorTotalAguardandoAprovacao: number = 0;
 
-    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < propostasRascunho.length; i++){
-      valorTotalRascunho = valorTotalRascunho + propostasRascunho[i].valorTotal;
+      let dadosFinanceiros = propostasRascunho[i].dadosFinanceiros.filter(x => x.ano == this.anoSeleciono);
+      if(dadosFinanceiros)
+      {
+        for(let j = 0; j< dadosFinanceiros.length; j ++)
+        {
+          valorTotalRascunho += dadosFinanceiros[j].valor;
+        }
+      }
     }
-    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < propostasAprovadas.length; i++){
-      valorTotalAprovada = valorTotalAprovada + propostasAprovadas[i].valorTotal;
+      let dadosFinanceiros = propostasAprovadas[i].dadosFinanceiros.filter(x => x.ano == this.anoSeleciono);
+      if(dadosFinanceiros)
+      {
+        for(let j = 0; j< dadosFinanceiros.length; j ++)
+        {
+          valorTotalAprovada += dadosFinanceiros[j].valor;
+        }
+      }
     }
-    // tslint:disable-next-line: prefer-for-of
+
     for (let i = 0; i < propostasRecusadas.length; i++){
-      valorTotalRecusada = valorTotalRecusada + propostasRecusadas[i].valorTotal;
+      let dadosFinanceiros = propostasRecusadas[i].dadosFinanceiros.filter(x => x.ano == this.anoSeleciono);
+      if(dadosFinanceiros)
+      {
+        for(let j = 0; j< dadosFinanceiros.length; j ++)
+        {
+          valorTotalRecusada += dadosFinanceiros[j].valor;
+        }
+      }
     }
-    // tslint:disable-next-line: prefer-for-of
+
     for (let i = 0; i < propostasAguardandoAprovacao.length; i++){
-      valorTotalAguardandoAprovacao = valorTotalAguardandoAprovacao + propostasAguardandoAprovacao[i].valorTotal;
+      let dadosFinanceiros = propostasAguardandoAprovacao[i].dadosFinanceiros.filter(x => x.ano == this.anoSeleciono);
+      if(dadosFinanceiros)
+      {
+        for(let j = 0; j< dadosFinanceiros.length; j ++)
+        {
+          valorTotalAguardandoAprovacao += dadosFinanceiros[j].valor;
+        }
+      }
     }
 
     this.propostasRascunhoQtd = propostasRascunho.length;

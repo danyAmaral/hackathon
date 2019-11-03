@@ -4,41 +4,38 @@
       <div class="col-sm-3">
         <label>Ano</label>
         <ng-multiselect-dropdown id="ddlAno" formControlName="ano" [placeholder]="'Ano Atual'" [data]="listAnos"
-          [(ngModel)]="selectedAno" [settings]="ddAnoSettings" (onSelect)="filtrar()"
-          (onDeSelect)="filtrar()">
+           [settings]="ddAnoSettings">
         </ng-multiselect-dropdown>
       </div>
       <div class="col-sm-4">
         <label>Área</label>
         <ng-multiselect-dropdown id="ddlArea" formControlName="area" [placeholder]="'Todas'" [data]="listAreas"
-          [(ngModel)]="selectedAreas" [settings]="dropdownSettings" (onSelect)="filtrar()"
-          (onSelectAll)="selectAll()" (onDeSelect)="filtrar()">
+          [settings]="dropdownSettings">
         </ng-multiselect-dropdown>
       </div>
       <div class="col-sm-5">
         <label>Status</label>
-        <ng-multiselect-dropdown id="ddlStatus2" formControlName="status" [placeholder]="'Todos'"
-          [data]="listStatus" [(ngModel)]="selectedStatus" [settings]="dropdownSettings" (onSelect)="filtrar()"
-          (onSelectAll)="selectAll()" (onDeSelect)="filtrar()">
+        <ng-multiselect-dropdown id="ddlStatus" formControlName="status" [placeholder]="'Todos'"
+          [data]="listStatus" [settings]="dropdownSettings">
         </ng-multiselect-dropdown>
       </div>
     </div>
   </form>
   <div *ngIf="itensPropostaCache !== undefined">
-    <app-cards [itensPropostaCache]="itensPropostaCache"></app-cards>
+    <app-cards [itensPropostaCache]="itensPropostaCache" [anoSeleciono]="anoSeleciono"></app-cards>
     <div *ngIf="exitemPropostas(); else semPropostas">
       <div style="width: 100%; overflow: hidden;">
         <div style="width: 600px; float: left;">
           <div *ngIf="exitemPropostasAprovadas(); else semPropostasAprovadas">
-             <app-grafico-crescimento [itensPropostaCache]="itensPropostaCache"></app-grafico-crescimento>  
+             <app-grafico-crescimento [itensPropostaCache]="itensPropostaCache" [anoSeleciono]="anoSeleciono"></app-grafico-crescimento>  
           </div>
         </div>
         <div style="margin-left: 620px;">
-          <app-grafico-setor [itensPropostaCache]="itensPropostaCache"></app-grafico-setor>
+          <app-grafico-setor [itensPropostaCache]="itensPropostaCache" [anoSeleciono]="anoSeleciono"></app-grafico-setor>
         </div>
       </div>
-      <app-grafico-linhas [itensPropostaCache]="itensPropostaCache"></app-grafico-linhas>
-      <app-listagem [itensPropostaCache]="itensPropostaCache"></app-listagem>
+      <app-grafico-linhas [itensPropostaCache]="itensPropostaCache" [anoSeleciono]="anoSeleciono" ></app-grafico-linhas>
+      <app-listagem [itensPropostaCache]="itensPropostaCache" ></app-listagem>
     </div>
   </div>
   <ng-template #semPropostas>

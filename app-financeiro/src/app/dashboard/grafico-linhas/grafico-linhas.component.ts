@@ -9,7 +9,7 @@ import { GraficoLinhasService, DataChart, Area } from '../../grafico-linhas.serv
 })
 export class GraficoLinhasComponent {
   @Input() public itensPropostaCache;
-
+  @Input() public anoSeleciono;
   dataSource: DataChart[];
   areas: Area[];
 
@@ -24,7 +24,7 @@ export class GraficoLinhasComponent {
 
   public iniciar() {
     if (this.itensPropostaCache) {
-      this.dataSource = this.service.getDataSource(this.itensPropostaCache);
+      this.dataSource = this.service.getDataSource(this.itensPropostaCache, this.anoSeleciono);
       this.areas = this.service.getAreas();
     }
   }

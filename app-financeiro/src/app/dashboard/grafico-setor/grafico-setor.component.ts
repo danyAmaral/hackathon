@@ -9,7 +9,7 @@ import { GraficoSetorService, DataChart } from '../../grafico-setor.service';
 })
 export class GraficoSetorComponent {
   @Input() public itensPropostaCache;
-
+  @Input() public anoSeleciono;
   dataSource: DataChart[];
 
   constructor(private service: GraficoSetorService) {
@@ -23,7 +23,7 @@ export class GraficoSetorComponent {
 
   public iniciar() {
     if (this.itensPropostaCache) {
-      this.dataSource = this.service.getInvestimentoPorArea(this.itensPropostaCache);
+      this.dataSource = this.service.getInvestimentoPorArea(this.itensPropostaCache, this.anoSeleciono);
     }
   }
 }

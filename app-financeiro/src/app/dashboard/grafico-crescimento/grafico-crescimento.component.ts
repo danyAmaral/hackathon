@@ -12,6 +12,7 @@ import { GraficoCrescimentoService, AreaChartValues } from '../../grafico-cresci
 export class GraficoCrescimentoComponent implements OnInit {
 
   @Input() public itensPropostaCache;
+  @Input() public anoSeleciono;
 
   areasData: AreaChartValues[];
   types: string[] = ['area', 'stackedarea', 'fullstackedarea'];
@@ -29,7 +30,7 @@ export class GraficoCrescimentoComponent implements OnInit {
 
   public iniciar(){
     if(this.itensPropostaCache)
-      this.areasData = this.service.getInvestimentoPorArea(this.itensPropostaCache);
+      this.areasData = this.service.getInvestimentoPorArea(this.itensPropostaCache, this.anoSeleciono);
     else
       this.areasData = new AreaChartValues[1];
   }

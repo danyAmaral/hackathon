@@ -16,11 +16,11 @@ export class AreaChartValues {
 
 @Injectable()
 export class GraficoCrescimentoService {
-    public getInvestimentoPorArea(itensCache: Array<PropostaDashboard>): AreaChartValues[] {
+    public getInvestimentoPorArea(itensCache: Array<PropostaDashboard>, ano:string): AreaChartValues[] {
 
         const dadosFinanceiros = itensCache
             .filter(x => x.status === Util.STATUS_APROVADA)
-            .map(x => x.dadosFinanceiros
+            .map(x => x.dadosFinanceiros.filter(y=> y.ano.toString() == ano)
                 .map(y => Object.assign({ area: x.area }, y)))
             .reduce((a, b) => a.concat(b));
 
